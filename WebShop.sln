@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShop.Model", "WebShop.Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShop.UnitTest", "WebShop.UnitTest\WebShop.UnitTest.csproj", "{1CF712A0-D1FC-4F04-BB77-BB3E6ED1C612}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Interfaces", "WebShop.Interfaces\WebShop.Interfaces.csproj", "{65D33A92-B17D-4EA2-BAFC-E380D480134F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShop.Interfaces", "WebShop.Interfaces\WebShop.Interfaces.csproj", "{65D33A92-B17D-4EA2-BAFC-E380D480134F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Web", "WebShop.Web\WebShop.Web.csproj", "{A3B379D7-A4D1-445B-8383-2FD9CE7ACF24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShop.Web", "WebShop.Web\WebShop.Web.csproj", "{A3B379D7-A4D1-445B-8383-2FD9CE7ACF24}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WebShop.DB", "WebShop.DB\WebShop.DB.sqlproj", "{B914CBDF-79A8-4560-8440-6E4CFDC33346}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,12 @@ Global
 		{A3B379D7-A4D1-445B-8383-2FD9CE7ACF24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3B379D7-A4D1-445B-8383-2FD9CE7ACF24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3B379D7-A4D1-445B-8383-2FD9CE7ACF24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B914CBDF-79A8-4560-8440-6E4CFDC33346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B914CBDF-79A8-4560-8440-6E4CFDC33346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B914CBDF-79A8-4560-8440-6E4CFDC33346}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B914CBDF-79A8-4560-8440-6E4CFDC33346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B914CBDF-79A8-4560-8440-6E4CFDC33346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B914CBDF-79A8-4560-8440-6E4CFDC33346}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

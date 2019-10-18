@@ -1,0 +1,7 @@
+﻿CREATE PROC DeleteOrdersByID
+@ID int
+AS
+BEGIN
+	DELETE FROM Orders
+	WHERE OrderID = @ID
+END;

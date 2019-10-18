@@ -25,7 +25,7 @@ namespace WebShop.Data
                     output = new FeaturedPropertyModel();
                     output.ID = Convert.ToInt32(sqlDataReader["ID"]);
                     output.CategoryID = Convert.ToInt32(sqlDataReader["CategoryID"]);
-                    output.CategoryID = Convert.ToInt32(sqlDataReader["PropertyID"]);
+                    output.PropertyID = Convert.ToInt32(sqlDataReader["PropertyID"]);
                     output.State = ModelState.Selected;
                     outputList.Add(output);
                 }
@@ -86,13 +86,38 @@ namespace WebShop.Data
                 return outputList;
             }
         }
-        
+
+        public FeaturedPropertyModel SelectFeaturedPropertyByCategoryIDAndPropertyID(FeaturedPropertyModel property)
+        {
+            using (SqlConnection conn = base.createConnection())
+            {
+                SqlCommand sqlCommand = base.createSqlCommandSP("SelectFeaturedPropertyByCategoryIDAndPropertyID");
+                sqlCommand.Parameters.Add(new SqlParameter("@CategoryID", property.CategoryID));
+                sqlCommand.Parameters.Add(new SqlParameter("@PropertyID", property.PropertyID));
+
+                FeaturedPropertyModel output = null;
+
+                SqlDataReader sqlDataReader = base.getSqlDataReader();
+
+                while (sqlDataReader.Read())
+                {
+                    output = new FeaturedPropertyModel();
+                    output.ID = Convert.ToInt32(sqlDataReader["ID"]);
+                    output.CategoryID = Convert.ToInt32(sqlDataReader["CategoryID"]);
+                    output.PropertyID = Convert.ToInt32(sqlDataReader["PropertyID"]);
+                    output.State = ModelState.Selected;
+                }
+
+                base.closeConnection();
+                return output;
+            }
+        }
+
         public FeaturedPropertyModel InsertFeaturedProperty(FeaturedPropertyModel property)
         {
             using (SqlConnection conn = base.createConnection())
             {
                 SqlCommand sqlCommand = base.createSqlCommandSP("InsertFeaturedProperty");
-                sqlCommand.Parameters.Add(new SqlParameter("@ID", property.ID));
                 sqlCommand.Parameters.Add(new SqlParameter("@CategoryID", property.CategoryID));
                 sqlCommand.Parameters.Add(new SqlParameter("@PropertyID", property.PropertyID));
 
@@ -100,7 +125,7 @@ namespace WebShop.Data
 
                 if (sqlCommand.ExecuteNonQuery() > 0)
                 {
-                    output = SelectFeaturedPropertyByID(property);
+                    output = SelectFeaturedPropertyByCategoryIDAndPropertyID(property);
                     output.State = ModelState.Inserted;
                 }
 

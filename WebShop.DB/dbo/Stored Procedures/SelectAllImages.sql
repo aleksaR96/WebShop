@@ -1,0 +1,6 @@
+﻿CREATE PROC SelectAllImages
+AS
+BEGIN
+	SELECT *
+	FROM Images
+END;

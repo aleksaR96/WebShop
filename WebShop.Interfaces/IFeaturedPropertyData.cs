@@ -18,5 +18,7 @@ namespace WebShop.Interfaces
         FeaturedPropertyModel UpdateFeaturedProperty(FeaturedPropertyModel property);
 
         bool DeleteFeaturedProperty(FeaturedPropertyModel property);
+
+        FeaturedPropertyModel SelectFeaturedPropertyByCategoryIDAndPropertyID(FeaturedPropertyModel property);
     }
 }

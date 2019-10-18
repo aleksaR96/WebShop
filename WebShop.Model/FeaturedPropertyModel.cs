@@ -17,6 +17,12 @@ namespace WebShop.Model
             PropertyID = propertyID;
         }
 
+        public FeaturedPropertyModel(int categoryID, int propertyID)
+        {
+            CategoryID = categoryID;
+            PropertyID = propertyID;
+        }
+
         public FeaturedPropertyModel(int iD)
         {
             ID = iD;
@@ -24,6 +30,11 @@ namespace WebShop.Model
 
         public FeaturedPropertyModel()
         {
+        }
+
+        public override string ToString()
+        {
+            return "[ " + ID + " " + CategoryID + " " + PropertyID + " ]";
         }
     }
 }

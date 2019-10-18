@@ -1,0 +1,6 @@
+﻿CREATE PROC SelectAllBrands
+AS
+BEGIN
+	SELECT *
+	FROM Brands
+	END;

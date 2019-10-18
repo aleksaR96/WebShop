@@ -1,0 +1,8 @@
+﻿CREATE PROC DeleteImageByID
+@ID int
+AS
+BEGIN
+	DELETE
+	FROM Images
+	WHERE ImageID = @ID
+END;

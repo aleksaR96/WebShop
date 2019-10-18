@@ -1,0 +1,7 @@
+﻿CREATE PROC DeleteUsersByID
+@ID int
+AS
+BEGIN
+	DELETE FROM Users
+	WHERE UserID = @ID
+END;

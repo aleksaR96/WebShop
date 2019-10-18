@@ -1,0 +1,7 @@
+﻿CREATE PROC DeleteBrand
+@ID int
+AS
+BEGIN
+	DELETE FROM Brands 
+	WHERE ID = @ID
+END;

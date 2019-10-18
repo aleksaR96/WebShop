@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>WebShop.DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b914cbdf-79a8-4560-8440-6e4cfdc33346}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>WebShop.DB</RootNamespace>
+    <AssemblyName>WebShop.DB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\PropertyList.sql" />
+    <Build Include="dbo\Tables\Properties.sql" />
+    <Build Include="dbo\Tables\Orders.sql" />
+    <Build Include="dbo\Tables\PropertyGroups.sql" />
+    <Build Include="dbo\Tables\FeaturedProperties.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\Category.sql" />
+    <Build Include="dbo\Tables\Products.sql" />
+    <Build Include="dbo\Tables\OrderProducts.sql" />
+    <Build Include="dbo\Tables\Brands.sql" />
+    <Build Include="dbo\Tables\Images.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateProductsByID.sql" />
+    <Build Include="dbo\Stored Procedures\InsertIntoProducts.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllPinnedDiscountProducts.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllPinnedPopularProducts.sql" />
+    <Build Include="dbo\Stored Procedures\SelectImageByID.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllPinnedNewProducts.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllImages.sql" />
+    <Build Include="dbo\Stored Procedures\SelectImageByProductID.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteImageByID.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteImageByProductID.sql" />
+    <Build Include="dbo\Stored Procedures\InsertIntoImages.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateImage.sql" />
+    <Build Include="dbo\Stored Procedures\SelectProductsByCategoryID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateImageByProductID.sql" />
+    <Build Include="dbo\Stored Procedures\InsertIntoCategory.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCategoryByID.sql" />
+    <Build Include="dbo\Stored Procedures\SelectOneProductFromCategoryWithOffset.sql" />
+    <Build Include="dbo\Stored Procedures\CountProductsByCategoryID.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllPropertyList.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllProperties.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllPropertyGroups.sql" />
+    <Build Include="dbo\Stored Procedures\SelectPropertyList.sql" />
+    <Build Include="dbo\Stored Procedures\SelectProperty.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllFeaturedProperties.sql" />
+    <Build Include="dbo\Stored Procedures\SelectPropertyGroup.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllCategories.sql" />
+    <Build Include="dbo\Stored Procedures\SelectFeaturedPropertyByID.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllUsers.sql" />
+    <Build Include="dbo\Stored Procedures\SelectFeaturedPropertiesByCategoryID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePropertyList.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllProducts.sql" />
+    <Build Include="dbo\Stored Procedures\InsertFeaturedProperty.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateProperty.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllOrders.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePropertyGroup.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllOrderProducts.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPropertyList.sql" />
+    <Build Include="dbo\Stored Procedures\SelectFeaturedPropertyByCategoryIDAndPropertyID.sql" />
+    <Build Include="dbo\Stored Procedures\InsertPropertyGroup.sql" />
+    <Build Include="dbo\Stored Procedures\InsertProperty.sql" />
+    <Build Include="dbo\Stored Procedures\SelectOrderByID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateFeaturedProperty.sql" />
+    <Build Include="dbo\Stored Procedures\DeletePropertyList.sql" />
+    <Build Include="dbo\Stored Procedures\SelectProductByID.sql" />
+    <Build Include="dbo\Stored Procedures\DeletePropertyGroup.sql" />
+    <Build Include="dbo\Stored Procedures\SelectUserByID.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteFeaturedProperty.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteProperty.sql" />
+    <Build Include="dbo\Stored Procedures\SelectCategoryByID.sql" />
+    <Build Include="dbo\Stored Procedures\SelectProductByName.sql" />
+    <Build Include="dbo\Stored Procedures\InsertIntoOrderProducts.sql" />
+    <Build Include="dbo\Stored Procedures\InsertIntoOrders.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllPropertiesByProductID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateOrdersByID.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteProductsByID.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteOrdersByID.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteCategoryByID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdatePropertyByProductIDAndPropertyID.sql" />
+    <Build Include="dbo\Stored Procedures\SelectOrderProductsByID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateOrderProductsByID.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteOrderProductsByID.sql" />
+    <Build Include="dbo\Stored Procedures\Select24ProductsWithOffset.sql" />
+    <Build Include="dbo\Stored Procedures\Select10ProductsWithOffset.sql" />
+    <Build Include="dbo\Stored Procedures\Select10ProductsFromCategoryWithOffset.sql" />
+    <Build Include="dbo\Stored Procedures\Select24ProductsFromCategoryWithOffset.sql" />
+    <Build Include="dbo\Stored Procedures\SelectBrands.sql" />
+    <Build Include="dbo\Stored Procedures\SelectAllBrands.sql" />
+    <Build Include="dbo\Stored Procedures\InsertBrand.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateBrand.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteBrand.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteUsersByID.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateUsersByID.sql" />
+    <Build Include="dbo\Stored Procedures\InsertIntoUsers.sql" />
+  </ItemGroup>
+</Project>

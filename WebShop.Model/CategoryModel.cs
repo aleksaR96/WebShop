@@ -41,13 +41,31 @@ namespace WebShop.Model
             Icon = icon;
         }
 
+        public CategoryModel(string categoryName, string image, string icon, List<FeaturedPropertyModel> properties)
+        {
+            CategoryName = categoryName;
+            Image = image;
+            Icon = icon;
+            FeaturedProperties = properties;
+        }
+
         public CategoryModel()
         {
         }
 
         public override string ToString()
         {
-            return CategoryID + " " + CategoryName + " " +  Image + " " + Icon + " " + base.ToString();
+            if(FeaturedProperties != null)
+            {
+                string output = CategoryID + " " + CategoryName + " " + Image + " " + Icon + " ";
+                foreach (FeaturedPropertyModel property in FeaturedProperties)
+                {
+                    output += property;
+                }
+                output += " " + base.ToString();
+                return output;
+            }
+            return CategoryID + " " + CategoryName + " " +  Image + " " + Icon + " " + FeaturedProperties + " " + base.ToString();
         }
     }
 }

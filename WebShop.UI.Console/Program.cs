@@ -13,16 +13,36 @@ namespace WebShop.UI.Console
         static void Main(string[] args)
         {
 
-            CategoryData cd = new CategoryData();
+            CategoryBusiness cb = new CategoryBusiness();
+            CategoryModel kategorija = new CategoryModel();
+            kategorija.CategoryName = "TEST";
+            kategorija.CategoryID = 999;
+            kategorija.Icon = "";
+            kategorija.Image = "";
 
-            cd.Update(new CategoryModel(301, "Periferije", "301.png", "fa fa-keyboard-o"));
+            FeaturedPropertyModel prop1 = new FeaturedPropertyModel(kategorija.CategoryID, 1);
+            FeaturedPropertyModel prop2 = new FeaturedPropertyModel(kategorija.CategoryID, 3);
+            FeaturedPropertyModel prop3 = new FeaturedPropertyModel(kategorija.CategoryID, 8);
 
-            List<CategoryModel> list = cd.SelectAll();
+            List<FeaturedPropertyModel> listaPropertija = new List<FeaturedPropertyModel>();
+            listaPropertija.Add(prop1);
+            listaPropertija.Add(prop2);
+            listaPropertija.Add(prop3);
 
-            foreach(CategoryModel cat in list)
-            {
-                WriteLine(cat);
-            }
+            CategoryModel list = cb.AddCategory(kategorija);
+
+            WriteLine("\nDODATA: \n" + list);
+
+            list.CategoryName = "IZMENJENA";
+            list = cb.EditCategory(kategorija);
+            WriteLine("\nIZMENJENA: \n" + list);
+
+            //foreach(CategoryModel cat in list)
+            //{
+            //    WriteLine(cat);
+            //}
+
+            WriteLine(list);
 
             ReadKey();
 

@@ -1,0 +1,8 @@
+﻿CREATE PROC SelectImageByID
+@ID int
+AS
+BEGIN
+	SELECT *
+	FROM Images
+	WHERE ImageID = @ID
+END;
