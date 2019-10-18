@@ -12,10 +12,19 @@ namespace WebShop.UI.Console
     {
         static void Main(string[] args)
         {
-            
-           
+
+            CategoryData cd = new CategoryData();
+
+            cd.Update(new CategoryModel(301, "Periferije", "301.png", "fa fa-keyboard-o"));
+
+            List<CategoryModel> list = cd.SelectAll();
+
+            foreach(CategoryModel cat in list)
+            {
+                WriteLine(cat);
+            }
+
             ReadKey();
-            Read();
 
         }
                

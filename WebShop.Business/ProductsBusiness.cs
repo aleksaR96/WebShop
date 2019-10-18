@@ -110,7 +110,6 @@ namespace WebShop.Business
                     else
                     {
                         return false;
-
                     }
                 }
             }

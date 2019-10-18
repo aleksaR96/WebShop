@@ -34,6 +34,13 @@ namespace WebShop.Model
             CategoryID = categoryID;
         }
 
+        public CategoryModel(string categoryName, string image, string icon)
+        {
+            CategoryName = categoryName;
+            Image = image;
+            Icon = icon;
+        }
+
         public CategoryModel()
         {
         }
