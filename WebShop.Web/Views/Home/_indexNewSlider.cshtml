@@ -1,0 +1,56 @@
+﻿<!--OVDE JE DEO ZA NOVE PROIZVODE-->
+
+<div class="container-fluid my-3 mt-5 py-3 border-bottom rounded">
+
+    @{ var active = "active"; }
+
+    <p class="text-danger text-uppercase h3"><span class=""><i class="fa fa-chevron-right"></i></span> Novo</p>
+
+    <div class="carousel slide my-3" id="novoCarousel" data-ride="carousel" data-pause="false">
+
+        <div class="carousel-inner">
+
+            @{ active = "active"; }
+
+            @for (int i = 0; i < Model.listOfPinnedProducts.newProducts.Count; i += 4)
+            {
+                @if (i > 0)
+                {
+                    active = "";
+                }
+                <div class="carousel-item @active">
+                    <div class="row">
+
+                        @for (int j = i; (j - i < 4) && (j < Model.listOfPinnedProducts.newProducts.Count); j++)
+                        {
+                            <div class="mt-3 mt-md-0 col-6 col-md-3">
+                                <a asp-controller="Products" asp-action="GetProduct" asp-route-id="@Model.listOfPinnedProducts.newProducts[j].ProductID">
+                                    <div class="card border-0 h-100">
+                                        <div class="pinned-badge novo-badge">
+                                            <span class="text-white h4 d-block text-center">Novo</span>
+                                        </div>
+                                        <img src="~/img/product @Model.listOfPinnedProducts.newProducts[j].ProductID/@(Model.listOfPinnedProducts.newProducts[j].Images[0].Image)" alt="" class="card-img-top img-fluid">
+                                        <div class="card-body pb-0">
+                                            <p class="h6">@Model.listOfPinnedProducts.newProducts[j].Name</p>
+                                            <p class="small">
+                                                Procesor: @Model.listOfPinnedProducts.newProducts[j].Properties[3].Value<br>
+                                                RAM: @Model.listOfPinnedProducts.newProducts[j].Properties[12].Value
+                                            </p>
+                                        </div>
+                                        <div class="card-footer border-0 bg-white pt-0">
+                                            <p class="text-success font-weight-bold">@Model.listOfPinnedProducts.newProducts[j].Price EUR</p>
+                                            <button type="button" name="button" class="btn btn-primary btn-sm rounded-0">Detaljnije</button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

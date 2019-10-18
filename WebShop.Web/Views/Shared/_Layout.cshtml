@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebShop.Web</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="~/img/favicon.png" type="image/png">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="@Url.Content("~/css/style.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <div class="help bg-primary">
+
+            <div class="btn-group">
+                <button type="button" name="button" class="scrollToTop btn btn-primary rounded-0"><i class="fa fa-angle-up"></i> vrh stranice</button>
+                <button type="button" name="button" data-target="#chat" data-toggle="collapse" class="btn btn-primary rounded-0"><i class="fa fa-comment"></i> Postavi pitanje</button>
+            </div>
+            <div class="collapse w-100" id="chat">
+                <form class="form-inline p-2" action="index.html" method="post">
+                    <div class="input-group">
+                        <input type="text" name="" value="" placeholder="Poruka..." class="form-control">
+                        <div class="input-group-append">
+                            <button type="button" name="button" class="btn btn-primary"><i class="fa fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="container-fluid bg-primary p-0 p-md-auto shadow">
+            <div class="container p-0 p-md-auto">
+
+                <nav class="navbar navbar-expand p-1 d-none d-md-block clearfix bg-light" style="font-size: 0.8em;">
+
+                    <ul class="navbar-nav float-left">
+                        <li class="nav-item"><a href="#" class="nav-link p-2"><i class="fa fa-facebook-official"></i></a></li>
+                        <li class="nav-item"><a href="#" class="nav-link p-2"><i class="fa fa-instagram"></i></a></li>
+                        <li class="nav-link text-primary">info<i class="fa fa-at"></i>carty.rs</li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto float-right">
+                        <li class="nav-item"><a href="#" class="nav-link px-1 text-uppercase"><i class="fa fa-map-marker"></i> prodavnice</a></li>
+                        <li class="nav-link px-0 text-primary">|</li>
+                        <li class="nav-item"><a href="#" class="nav-link px-1 text-uppercase"><i class="fa fa-credit-card"></i> način plaćanja</a></li>
+                    </ul>
+
+                </nav>
+
+                <div class="row m-0 m-md-auto">
+
+                    <div class="col-md-4 bg-primary d-none d-md-block">
+                        <div class="container-fluid h-100 py-auto">
+                            <a asp-controller="home" asp-action="index" class="d-block h-100"><img src="~/img/logo.png" alt="logo" class="d-block img-fluid" style="position: relative; top: 25%;"></a>
+                            <!--<img src="img/logo.png" alt="logo" class="" style="max-width: 100%;">-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 bg-primary d-block d-md-none">
+                        <div class="container-fluid h-100 py-auto">
+                            <a asp-controller="home" asp-action="index" class="d-block h-100"><img src="~/img/logo.png" alt="logo" class="d-block w-25 py-2" style=""></a>
+                            <!--<img src="img/logo.png" alt="logo" class="" style="max-width: 100%;">-->
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 p-0 p-md-auto d-none d-md-block">
+                        <div class="carousel slide" data-ride="carousel" id="slider" data-interval="3000" data-pause="false">
+
+                            <ul class="carousel-indicators">
+                                <li data-slide-to="0" data-target="#slider" class="active"></li>
+                                <li data-slide-to="1" data-target="#slider"></li>
+                            </ul>
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="#"><img src="~/img/slajd1.png" alt=""></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="#"><img src="~/img/slajd2.png" alt=""></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container px-0">
+
+            <nav class="navbar navbar-expand-md shadow-sm p-0" style="align-items: normal; justify-content: left">
+                <a href="#proizvodi" class="navbar-brand text-uppercase font-weight-bold bg-primary text-white px-2 mx-0" data-toggle="collapse" id="proizvodiBtn"><i class="fa fa-angle-down" id="proizvodiBtnIcon"></i> Proizvodi</a>
+                <a href="#" class="navbar-brand text-uppercase font-weight-bold bg-success text-white px-2 mx-0"><i class="fa fa-percent"></i> akcije</a>
+
+                <button type="button" name="button" class="navbar-toggler navbar-light ml-auto" data-toggle="collapse" data-target="#navbar"><span class="navbar-toggler-icon"></span></button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a asp-controller="cart" asp-action="shopping-cart" class="nav-link py-md-0 px-2 text-uppercase font-weight-bold text-secondary"><i class="fa fa-shopping-cart"></i> Korpa</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container px-0">
+        <partial name="_CookieConsentPartial" />
+        <main role="main">
+            @RenderBody()
+        </main>
+
+        <div class="container-fluid mb-0">
+            <button type="button" name="button" class="scrollToTop btn btn-dark btn-lg rounded-0 d-block d-lg-none mx-auto"><i class="fa fa-angle-up"></i> vrh stranice</button>
+        </div>
+    </div>
+
+    <footer id="footerDiv">
+        <div class="container-fluid bg-light">
+            <div class="container py-4 px-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="h3 text-uppercase mb-3">Call center<span class="pl-2 h1 text-primary"><i class="fa fa-phone"></i></span></p>
+                        <p class="m-0">Fizička lica:</p>
+                        <p class="pl-2 text-primary">0900 22 33 000</p>
+                        <p class="m-0">Pravna lica:</p>
+                        <p class="pl-2 text-primary">0900 22 33 000</p>
+                        <p class="m-0">Radno vreme centra:</p>
+                        <p class="pl-2 text-primary">0900 22 33 000</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="h3 text-uppercase mb-3">Imate pitanja<span class="pl-2 h1 text-primary"><i class="fa fa-question"></i></span></p>
+                        <p class=""><span class="small"><i class="fa fa-chevron-right"></i></span> Pozovite nas putem Call centra</p>
+                        <p class=""><span class="small"><i class="fa fa-chevron-right"></i></span> Kontaktirajte nas putem e-pošte:<br><span class="pl-3 text-primary">info@carty.rs</span></p>
+                        <p class=""><span class="small"><i class="fa fa-chevron-right"></i></span> Ili pročitajte<br><a href="#" class="pl-3 text-uppercase">Često postavljena pitanja</a>,<br><span class="pl-3">možda tu nađete odgovor</span></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="h3 text-uppercase mb-3">Pratite nas<span class="pl-2 h1 text-primary"><i class="fa fa-mouse-pointer"></i></span></p>
+                        <p><span class="text-primary"><i class="fa fa-thumbs-up"></i></span> Lajkuj FB stranicu i možeš osvojiti nagradu!</p>
+                        <a href="#" class="h3"><i class="fa fa-facebook-official"></i></a>
+                        <a href="#" class="h3 ml-2"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="container text-center">
+                <a href="#"><img src="~/img/maestro.png" alt="" style="height: 40px" class="img-fluid px-3 my-4"></a><br class="d-block d-md-none">
+                <a href="#"><img src="~/img/mastercard.png" alt="" style="height: 40px" class="img-fluid px-3 my-4"></a><br class="d-block d-md-none">
+                <a href="#"><img src="~/img/visa.png" alt="" style="height: 40px" class="img-fluid px-3 my-4"></a><br class="d-block d-md-none">
+                <a href="#"><img src="~/img/societe.png" alt="" style="height: 40px" class="img-fluid px-3 my-4"></a>
+            </div>
+        </div>
+        <div class="container-fluid bg-dark">
+            <div class="container py-4 px-5">
+                <img src="~/img/logo.png" alt="logo" class="img-fluid pr-3 border-right" style="width: 100px"><br class="d-block d-sm-none">
+                <p class="d-inline small pl-2 text-light">Sva prava zadržana &copy; 2018. | <span class="text-primary">carty.rs</span></p>
+            </div>
+        </div>
+
+    </footer>
+
+    <!--<environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>-->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+
+        //collapse icon toggle
+        var dole = true;
+        $(document).ready(function () {
+            $("#proizvodiBtn").click(function () {
+                if (dole === true) {
+                    $("#proizvodiBtnIcon").removeClass("fa-angle-down");
+                    $("#proizvodiBtnIcon").addClass("fa-angle-up");
+                    dole = false;
+                } else {
+                    $("#proizvodiBtnIcon").addClass("fa-angle-down");
+                    $("#proizvodiBtnIcon").removeClass("fa-angle-up");
+                    dole = true;
+                }
+
+            });
+        });
+
+        //popover
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+
+        //scroll to top
+        $(document).ready(function () {
+            $('.scrollToTop').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 400);
+                return false;
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.scrollToTop').fadeIn();
+                } else {
+                    $('.scrollToTop').fadeOut();
+                }
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

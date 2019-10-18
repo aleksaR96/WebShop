@@ -1,0 +1,23 @@
+﻿@model WebShop.Web.Models.Products
+
+@for (int i = 0; i < Model.ProductsList.Count; i++)
+{
+    <div class="col-md-3 mb-0 mb-md-5">
+        <a asp-controller="Products" asp-action="GetProduct" asp-route-id="@Model.ProductsList[i].ProductID">
+            <div class="card border-0 h-100">
+                <img src="~/img/product @Model.ProductsList[i].ProductID/@(Model.ProductsList[i].Images[0].Image)" alt="" class="card-img-top img-fluid">
+                <div class="card-body pb-0">
+                    <p class="h6">@Model.ProductsList[i].Name</p>
+                    <p class="small">
+                        Procesor:<br>
+                        RAM:
+                    </p>
+                </div>
+                <div class="card-footer border-0 bg-white pt-0">
+                    <p class="text-success font-weight-bold">@Model.ProductsList[i].Price EUR</p>
+                    <button type="button" name="button" class="btn btn-primary btn-sm rounded-0">Detaljnije</button>
+                </div>
+            </div>
+        </a>
+    </div>
+}

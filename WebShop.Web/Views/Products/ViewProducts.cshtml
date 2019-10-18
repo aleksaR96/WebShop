@@ -1,0 +1,94 @@
+﻿@model WebShop.Web.Models.ViewProductsModel
+@{
+    ViewData["Title"] = Model.currentCategory.CategoryName;
+}
+
+<div class="container-fluid py-3 px-0">
+    <div class="fade container-fluid border-bottom pl-5 pl-md-3 collapse" id="proizvodi">
+        <div class="row pb-3">
+            @for (int i = 0; i < Model.listOfCategories.Count; i += 4)
+            {
+                <div class="col-sm">
+                    @for (int j = i; (j - i < 4) && (j < Model.listOfCategories.Count); j++)
+                    {
+                        <a asp-controller="Products" asp-action="ViewProducts" asp-route-id="@Model.listOfCategories[j].CategoryID"><p class="h6 text-primary"><i class="fa fa-caret-right"></i> @Model.listOfCategories[j].CategoryName</p></a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<form class="form-inline pb-3 m-3 m-md-0" action="index.html" method="post">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <p class="input-group-text text-secondary"><i class="fa fa-search"></i></p>
+        </div>
+        <input type="text" name="" value="" placeholder="Pretraga:" class="form-control">
+        <div class="input-group-append">
+            <button type="button" name="button" class="btn btn-outline-primary">Traži</button>
+        </div>
+    </div>
+</form>
+
+<breadcrumb></breadcrumb>
+
+<div class="col-md-9 proizvodi">
+    <div class="row" id="div1">
+        @*@foreach (var product in Model.listOfProducts)
+        {
+            <div class="col-md-3 mb-0 mb-md-5">
+                <a asp-controller="Products" asp-action="GetProduct" asp-route-id="@product.ProductID">
+                    <div class="card border-0 h-100">
+                        <img src="~/img/product @product.ProductID/@(product.Images[0].Image)" alt="" class="card-img-top img-fluid">
+                        <div class="card-body pb-0">
+                            <p class="h6">@product.Name</p>
+                            <p class="small">
+                                Procesor:<br>
+                                RAM:
+                            </p>
+                        </div>
+                        <div class="card-footer border-0 bg-white pt-0">
+                            <p class="text-success font-weight-bold">@product.Price EUR</p>
+                            <button type="button" name="button" class="btn btn-primary btn-sm rounded-0">Detaljnije</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }*@
+    </div>
+
+    <button class="btn" id="load">Load</button>
+
+</div>
+
+<script>
+            var offset = 0;
+            $(document).ready(function () {
+                loadMore();
+            });
+
+            /*$(window).scroll(function () {
+                console.log('SCROLL ' + $(window).scrollTop() + '; RAZLIKA: ' + ($(document).height() - $(window).height() - $('#footerDiv').height()));
+                if ($(window).scrollTop() >= ($(document).height() - $(window).height() - $('#footerDiv').height())) {
+                    loadMore();
+                }
+            })*/
+
+            $("#load").click(function () {
+                loadMore();
+            });
+
+            function loadMore() {
+                $.ajax({
+                    type: 'GET',
+                    url: '/Products/LoadProducts?cats=' + @(Model.currentCategory.CategoryID) +'&offs=' + offset,
+                    success: function (result) {
+                        $("#div1").html(result).hide().fadeIn(1000);
+                    }
+                });
+                $('html, body').animate({ scrollTop: 0 }, 400);
+                offset += 24;
+            }
+</script>
+

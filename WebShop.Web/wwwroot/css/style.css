@@ -1,0 +1,126 @@
+﻿body {
+    font-family: 'Oswald', sans-serif;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+}
+
+.kategorijeKomande {
+    width: 5%;
+}
+
+.kategorijaOverlay {
+    position: absolute;
+    left: 0;
+    color: rgba(255,255,255,1);
+    transition: all 0.2s ease-in-out;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 22.5%;
+}
+
+.kategorija {
+    position: relative;
+}
+
+    .kategorija:hover .kategorijaOverlay {
+        color: rgba(255,255,255,0);
+    }
+
+.kategorijaPozadina {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    transition: all 0.2s ease-in-out;
+    width: calc(100% - 2rem);
+    height: 100%;
+}
+
+.kategorija:hover .kategorijaPozadina {
+    background-color: rgba(0,0,0,0);
+}
+
+.carousel-item a {
+    text-decoration: none !important;
+}
+
+.help {
+    position: fixed;
+    bottom: 0;
+    right: 2em;
+    z-index: 9000;
+    display: none;
+}
+
+@media only screen and (min-width: 992px) {
+    .help {
+        display: block;
+    }
+}
+
+.akcijaCard {
+    position: relative;
+}
+
+.pinned-badge {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 500;
+}
+
+.pinned-badge span {
+	position: relative;
+	top: 25%;
+}
+
+.akcija-badge {
+	background-image: url("../img/akcija-badge.png");
+}
+
+.novo-badge {
+	background-image: url("../img/novo-badge.png");
+}
+
+.popularno-badge {
+	background-image: url("../img/popularno-badge.png");
+}
+
+.popularno-badge span {
+	padding-top: 0.5em;
+}
+
+.borderDiv {
+	height: 2px;
+	width: 80px;
+  }
+	  
+.breadcrumb-item+.breadcrumb-item::before {
+	display: inline-block;
+	padding-right: .5rem;
+	color: #6c757d;
+	content: "/";
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: "/";
+}
+
+.breadcrumb-item {
+	color: #6c757d;
+}

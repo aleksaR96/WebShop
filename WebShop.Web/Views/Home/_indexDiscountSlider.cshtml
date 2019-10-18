@@ -1,0 +1,58 @@
+﻿<!--OVDE JE DEO ZA SNIZENE PROIZVODE-->
+
+<div class="container-fluid my-3 mt-5 py-3 border-bottom rounded">
+
+    <p class="text-success text-uppercase h3"><span class=""><i class="fa fa-chevron-right"></i></span> Akcija!</p>
+
+    <div class="carousel slide my-3" id="akcijaCarousel" data-pause="false" data-ride="carousel">
+
+        <div class="carousel-inner">
+
+            @{ var active = "active"; float discountPrice;}
+
+            @for (int i = 0; i < Model.listOfPinnedProducts.discountProducts.Count; i += 4)
+            {
+                @if (i > 0)
+                {
+                    active = "";
+                }
+                <div class="carousel-item @active">
+                    <div class="row">
+
+                        @for (int j = i; (j - i < 4) && (j < Model.listOfPinnedProducts.discountProducts.Count); j++)
+                        {
+                            discountPrice = Model.listOfPinnedProducts.discountProducts[j].Price - ((Model.listOfPinnedProducts.discountProducts[j].Price / 100) * Model.listOfPinnedProducts.discountProducts[j].Discount);
+                            <div class="mt-3 mt-md-0 col-6 col-md-3">
+                                <a asp-controller="Products" asp-action="GetProduct" asp-route-id="@Model.listOfPinnedProducts.discountProducts[j].ProductID">
+                                    <div class="card border-0 h-100">
+                                        <div class="pinned-badge akcija-badge">
+                                            <span class="text-white h4 d-block text-center">@Model.listOfPinnedProducts.discountProducts[j].Discount%</span>
+                                        </div>
+                                        <img src="~/img/product @Model.listOfPinnedProducts.discountProducts[j].ProductID/@(Model.listOfPinnedProducts.discountProducts[j].Images[0].Image)" alt="" class="card-img-top img-fluid">
+                                        <div class="card-body pb-0">
+                                            <p class="h6">@Model.listOfPinnedProducts.discountProducts[j].Name</p>
+                                            <p class="small">
+                                                Procesor: @Model.listOfPinnedProducts.discountProducts[j].Properties[3].Value<br>
+                                                RAM: @Model.listOfPinnedProducts.discountProducts[j].Properties[12].Value
+                                            </p>
+                                        </div>
+                                        <div class="card-footer border-0 bg-white pt-0">
+                                            <p class="text-danger small p-0 m-0"><del>@Model.listOfPinnedProducts.discountProducts[j].Price EUR</del></p>
+                                            <p class="text-success font-weight-bold">@discountPrice EUR</p>
+
+                                            <button type="button" name="button" class="btn btn-primary btn-sm rounded-0">Detaljnije</button>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>
+
+

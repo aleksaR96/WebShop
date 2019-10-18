@@ -1,0 +1,94 @@
+﻿@model WebShop.Model.ProductsModel
+@using WebShop.Model;
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<breadcrumb></breadcrumb>
+
+<h1>@Model.Name</h1>
+<div class="row m-0">
+    <div class="col-md-4 m-0 p-0">
+
+        @{
+            var active = "active show";
+        }
+        <div class="tab-content">
+            @for (int i = 0; i < Model.Images.Count && i < 4; i++)
+            {
+                if (i == 1)
+                {
+                    active = "";
+                }
+                <div class="tab-pane container-fluid fade @(active)" id="tab@(i)">
+                    <a href="#modal@(i)" data-toggle="modal"><img class="w-100" alt="" src="~/img/product @Model.ProductID/@(Model.Images[i].Image)"></a>
+                </div>
+            }
+        </div>
+
+        @{
+            active = "active show";
+        }
+        <ul class="nav nav-tabs">
+            @for (int i = 0; i < Model.Images.Count && i < 4; i++)
+            {
+                if (i == 1)
+                {
+                    active = "";
+                }
+            <li class="nav-item w-25"><a class="nav-link @(active)" href="#tab@(i)" data-toggle="tab"><img class="w-100" alt="" src="~/img/product @Model.ProductID/@(Model.Images[i].Image)"></a></li>
+            }
+        </ul>
+
+    </div>
+
+    <div class="col-md-8">
+        <div class="container-fluid h-100 p-3 overview text-center text-md-left">
+            <div class="imgDiv mb-3">
+                <img class="img-fluid" alt="" src="img/proizvod/cpu.png">
+                <img class="img-fluid" alt="" src="img/proizvod/ram.png">
+                <img class="img-fluid" alt="" src="img/proizvod/mem.png">
+                <img class="img-fluid" alt="" src="img/proizvod/cam.png">
+                <img class="img-fluid" alt="" src="img/proizvod/lte.png">
+            </div>
+
+            @{
+                if (@Model.Quantity > 0)
+                {
+                    @:<p class="text-success m-1"><i class="fa fa-check"></i> Na stanju</p>
+                }
+
+                else
+                {
+                    @:<p class="text-danger m-1"><i class="fa fa-close"></i> Nedostupno</p>
+                }
+            }
+            <p class="text-success m-1"><i class="fa fa-truck"></i> Besplatna dostava</p>
+            <p class="text-success m-1 pb-3"><i class="fa fa-credit-card"></i> Plaćanje karticom</p>
+            <p class="h4 text-danger">@Model.Price EUR</p>
+
+            <form action="index.html" method="post">
+                <p class="m-0">Količina:</p>
+
+                @{
+                    if (@Model.Quantity > 0)
+                    {
+                        @:<input class="form-control mx-auto mx-md-0" style="width: 80px;" type="number" value="1" min="1" max="@Model.Quantity">
+                        <button name="button" class="btn btn-success rounded-0 p-2 mt-3 text-uppercase" type="button"><i class="fa fa-shopping-cart"></i> Dodaj u korpu</button>
+                    }
+
+                    else
+                    {
+                        @:<input class="form-control mx-auto mx-md-0" style="width: 80px;" type="number" value="0" disabled>
+                        <button name="button" class="btn btn-outline-danger rounded-0 p-2 mt-3 text-uppercase" type="button" disabled><i class="fa fa-shopping-cart"></i> Dodaj u korpu</button>
+                    }
+                }
+
+            </form>
+
+            <p class="small text-secondary mt-3">Kupovinom telefona dobijate kupon čiji iznos je naznačen na stikeru koji stoji uz izabrani telefon. Kupon možete iskoristiti za kupovinu bilo kog artikla iz našeg asortimana. Popust se obračunava naknadno na kasi. Akcija je aktivna online, kao i u svim našim maloprodajama.</p>
+
+        </div>
+    </div>
+</div>
+

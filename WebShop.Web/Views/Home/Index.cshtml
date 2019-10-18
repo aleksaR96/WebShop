@@ -1,0 +1,101 @@
+﻿@model WebShop.Web.Models.indexModel
+
+@{
+    ViewData["Title"] = "Početna strana";
+}
+
+<div class="container-fluid py-3 px-0">
+    <div class="fade container-fluid border-bottom pl-5 pl-md-3 collapse" id="proizvodi">
+        <div class="row pb-3">
+            @for (int i = 0; i < Model.listOfCategories.Count; i += 4)
+            {
+                <div class="col-sm">
+                    @for (int j = i; (j - i < 4) && (j < Model.listOfCategories.Count); j++)
+                    {
+                        <a asp-controller="Products" asp-action="ViewProducts" asp-route-id="@Model.listOfCategories[j].CategoryID"><p class="h6 text-primary"><i class="fa fa-caret-right"></i> @Model.listOfCategories[j].CategoryName</p></a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<form class="form-inline m-3 m-md-0" action="index.html" method="post">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <p class="input-group-text text-secondary"><i class="fa fa-search"></i></p>
+        </div>
+        <input type="text" name="" value="" placeholder="Pretraga:" class="form-control">
+        <div class="input-group-append">
+            <button type="button" name="button" class="btn btn-outline-primary">Traži</button>
+        </div>
+    </div>
+</form>
+
+<partial name="_indexCategorySliderPartialView" />
+
+@if (Model.listOfPinnedProducts.discountProducts.Count > 0)
+{
+    @await Html.PartialAsync("~/Views/Home/_indexDiscountSlider.cshtml")
+}
+@if (Model.listOfPinnedProducts.newProducts.Count > 0)
+{
+    @await Html.PartialAsync("~/Views/Home/_indexNewSlider.cshtml")
+}
+@if (Model.listOfPinnedProducts.popularProducts.Count > 0)
+{
+    @await Html.PartialAsync("~/Views/Home/_indexPopularSlider.cshtml")
+}
+
+<button id="button">Click</button>
+<button id="button2">Click</button>
+
+<div id="div1"></div>
+
+<script>
+    var pageNum = "2";
+    @*$(document).ready(function () {
+        $("#button").click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Load24Products", "Home")',
+                contentType: 'application/json; charset=utf8',
+                data: { 'page': pageNum },
+                dataType: 'json',
+                success: function (result) {
+                    $("#div1").append(result);
+                }
+            });
+        });
+    });*@
+
+    $(document).ready(function () {
+        $("#button").click(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Home/Load24Products?page=' + pageNum,
+                success: function (result) {
+                    //alert(result);
+                    $.each(result, function (i, val) {
+                        $.each(val, function (j, obj) {
+                            $("#div1").append(obj + "<br>");
+                        });
+                        $("#div1").append("<br>");
+                    });
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#button2").click(function () {
+            $.ajax({
+                type: 'POST',
+                url: '/Home/LoadHtml',
+                success: function (result) {
+                    $("#div1").append(result);
+                }
+            });
+        });
+    });
+</script>
