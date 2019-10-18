@@ -10,5 +10,13 @@ namespace WebShop.Interfaces
         List<FeaturedPropertyModel> SelectAllFeaturedProperties();
 
         FeaturedPropertyModel SelectFeaturedPropertyByID(FeaturedPropertyModel property);
+
+        List<FeaturedPropertyModel> SelectFeaturedPropertiesByCategoryID(CategoryModel category);
+
+        FeaturedPropertyModel InsertFeaturedProperty(FeaturedPropertyModel property);
+
+        FeaturedPropertyModel UpdateFeaturedProperty(FeaturedPropertyModel property);
+
+        bool DeleteFeaturedProperty(FeaturedPropertyModel property);
     }
 }
