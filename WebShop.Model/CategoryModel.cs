@@ -10,6 +10,16 @@ namespace WebShop.Model
         public string CategoryName { get; set; }
         public string Image { get; set; }
         public string Icon { get; set; }
+        public List<FeaturedPropertyModel> FeaturedProperties { get; set; }
+
+        public CategoryModel(int categoryID, string categoryName, string image, string icon, List<FeaturedPropertyModel> properties)
+        {
+            CategoryID = categoryID;
+            CategoryName = categoryName;
+            Image = image;
+            Icon = icon;
+            FeaturedProperties = properties;
+        }
 
         public CategoryModel(int categoryID, string categoryName, string image, string icon)
         {
