@@ -7,7 +7,7 @@ using WebShop.Model;
 
 namespace WebShop.Data
 {
-    class FeaturedPropertyData : BaseData, IFeaturedPropertyData
+    public class FeaturedPropertyData : BaseData, IFeaturedPropertyData
     {
         public List<FeaturedPropertyModel> SelectAllFeaturedProperties()
         {

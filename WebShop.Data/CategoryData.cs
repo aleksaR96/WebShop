@@ -61,7 +61,7 @@ namespace WebShop.Data
             }
         }
 
-        public bool Insert(CategoryModel newCategory)
+        public CategoryModel Insert(CategoryModel newCategory)
         {
             using (SqlConnection conn = base.createConnection())
             {
@@ -70,12 +70,15 @@ namespace WebShop.Data
                 sqlCommand.Parameters.Add(new SqlParameter("@Name", newCategory.CategoryName));
                 sqlCommand.Parameters.Add(new SqlParameter("@Icon", newCategory.Icon));
 
-                //upisivanje u bazu
-                int num = sqlCommand.ExecuteNonQuery();
-                newCategory.State = ModelState.Inserted;
-                base.closeConnection();
+                CategoryModel output = null;
 
-                return (num > 0) ? true : false;
+                if (sqlCommand.ExecuteNonQuery() > 0)
+                {
+                    output = Select(newCategory);
+                    output.State = ModelState.Inserted;
+                }
+                base.closeConnection();
+                return output;
             }
         }
 
@@ -94,7 +97,7 @@ namespace WebShop.Data
             }
         }
 
-        public bool Update(CategoryModel category)
+        public CategoryModel Update(CategoryModel category)
         {
             using (SqlConnection conn = base.createConnection())
             {
@@ -105,12 +108,18 @@ namespace WebShop.Data
                 sqlCommand.Parameters.Add(new SqlParameter("@Image", category.Image));
                 sqlCommand.Parameters.Add(new SqlParameter("@Icon", category.Icon));
 
-                //azuriranje iz baze
-                int num = sqlCommand.ExecuteNonQuery();
-                category.State = ModelState.Updated;
-                base.closeConnection();
+                CategoryModel output = null;
 
-                return (num > 0) ? true : false;
+                //azuriranje iz baze
+                if(sqlCommand.ExecuteNonQuery() > 0)
+                {
+                    output = Select(category);
+                    category.State = ModelState.Updated;
+                }
+                
+                base.closeConnection();
+                return output;
+                
             }
         }
     }
