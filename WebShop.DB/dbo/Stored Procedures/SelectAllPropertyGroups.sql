@@ -2,5 +2,5 @@
 AS
 BEGIN
 	SELECT *
-	FROM PropertyGruops
+	FROM PropertyGroups
 END;

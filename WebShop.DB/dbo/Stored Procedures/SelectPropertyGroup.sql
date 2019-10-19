@@ -3,6 +3,6 @@
 AS
 BEGIN
 	SELECT *
-	FROM PropertyGruops
-	WHERE GroupID = @ID
+	FROM PropertyGroups
+	WHERE ID = @ID
 END;
