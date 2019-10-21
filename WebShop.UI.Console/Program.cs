@@ -19,7 +19,7 @@ namespace WebShop.UI.Console
 
             foreach(var b in a)
             {
-                WriteLine(b);
+                WriteLine(b + "sad");
             }
 
             ReadKey();
