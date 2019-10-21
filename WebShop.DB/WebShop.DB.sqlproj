@@ -148,5 +148,7 @@
     <Build Include="dbo\Stored Procedures\DeleteUsersByID.sql" />
     <Build Include="dbo\Stored Procedures\UpdateUsersByID.sql" />
     <Build Include="dbo\Stored Procedures\InsertIntoUsers.sql" />
+    <Build Include="dbo\Stored Procedures\SelectPropertyByPropertyID.sql" />
+    <Build Include="dbo\Stored Procedures\SelectPropertyByProductIDAndPropertyID.sql" />
   </ItemGroup>
 </Project>

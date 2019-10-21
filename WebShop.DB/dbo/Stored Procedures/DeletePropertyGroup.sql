@@ -2,6 +2,6 @@
 @ID int
 AS
 BEGIN
-	DELETE FROM PropertyGroups
+	DELETE FROM PropertyGroup
 	WHERE ID = @ID
 END;
