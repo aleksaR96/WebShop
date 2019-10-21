@@ -87,5 +87,40 @@ namespace WebShop.Data
                 return (num > 0) ? true : false;
             }
         }
+
+        public List<PropertyModel> SelectPropertyByProductIDAndPropertyID(ProductsModel product, List<FeaturedPropertyModel> featuredProperties)
+        {
+            using (SqlConnection conn = base.createConnection())
+            {
+                List<PropertyModel> outputList = new List<PropertyModel>();
+                PropertyModel output = null;
+
+                foreach (var prop in featuredProperties)
+                {
+                    //poziva SP za svaki FP i dodaje u listu koju vraca
+                    output = new PropertyModel();
+                    SqlCommand sqlCommand = base.createSqlCommandSP("SelectPropertyByProductIDAndPropertyID");
+                    sqlCommand.Parameters.Add(new SqlParameter("@ProductID", product.ProductID));
+                    sqlCommand.Parameters.Add(new SqlParameter("@PropertyID", prop.PropertyID));
+
+                    SqlDataReader sqlDataReader = base.getSqlDataReader();
+
+                    while(sqlDataReader.Read())
+                    {
+                        output.ID = Convert.ToInt32(sqlDataReader["ID"]);
+                        output.ProductID = Convert.ToInt32(sqlDataReader["ProductID"]);
+                        output.PropertyID = Convert.ToInt32(sqlDataReader["PropertyID"]);
+                        output.Value = sqlDataReader["Value"].ToString();
+
+                        output.State = ModelState.Selected;
+
+                        outputList.Add(output);
+                    }
+                }
+
+                base.closeConnection();
+                return outputList;
+            }
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace WebShop.Interfaces
         bool UpdateProperty(PropertyModel property);
         List<PropertyModel> SelectAllPropertiesByProductID(ProductsModel product);
         bool UpdatePropertyByProductIDAndPropertyID(PropertyModel property);
+        List<PropertyModel> SelectPropertyByProductIDAndPropertyID(ProductsModel product, List<FeaturedPropertyModel> featuredProperties);
     }
 }

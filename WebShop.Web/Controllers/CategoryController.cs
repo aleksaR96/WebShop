@@ -16,7 +16,9 @@ namespace WebShop.Web.Controllers
         public IActionResult Index()
         {
             CategoryBusiness cb = new CategoryBusiness();
-            return View(new CategoryViewModel(cb.GetAllCategories()));
+            ProductsBusiness pb = new ProductsBusiness();
+            
+            return View(new CategoryViewModel(cb.GetAllCategories(), pb.GetAllPinnedDiscountProducts()));
         }
     }
 }

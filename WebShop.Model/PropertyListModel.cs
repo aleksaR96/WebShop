@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WebShop.Model
 {
-    class PropertyListModel
+    public class PropertyListModel : BaseModel
     {
         public int PropertyID { get; set; }
         public int GroupID { get; set; }

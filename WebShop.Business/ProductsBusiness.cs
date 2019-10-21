@@ -16,6 +16,8 @@ namespace WebShop.Business
             IProductsData productsData = new ProductsData();
             IPropertiesData prd = new PropertiesData();
             IImagesData imgd = new ImagesData();
+            IFeaturedPropertyData ifpd = new FeaturedPropertyData();
+            IPropertyListData ipld = new PropertyListData();
 
             List<ProductsModel> products = productsData.SelectAll();
 
@@ -23,7 +25,14 @@ namespace WebShop.Business
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+                var props = ifpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, props);
 
+                foreach(var prop in product.FeaturedProperties)
+                {
+                    var name = ipld.SelectPropertyByPropertyID(prop);
+                    product.FeaturedPropertiesName.Add(name);
+                }
             }
 
             return products;

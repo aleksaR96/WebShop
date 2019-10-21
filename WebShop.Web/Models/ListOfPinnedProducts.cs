@@ -18,5 +18,10 @@ namespace WebShop.Web.Models
             this.newProducts = newProducts;
             this.popularProducts = popularProducts;
         }
+
+        public ListOfPinnedProducts(List<ProductsModel> discountProducts)
+        {
+            this.discountProducts = discountProducts;
+        }
     }
 }

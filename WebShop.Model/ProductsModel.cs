@@ -19,6 +19,8 @@ namespace WebShop.Model
         public byte Popular { get; set; }
         public List<PropertyModel> Properties { get; set; }
         public List<ImageModel> Images { get; set; }
+        public List<PropertyModel> FeaturedProperties { set; get; }
+        public List<PropertyListModel> FeaturedPropertiesName { get; set; }
 
         public ProductsModel(string name, string description, int categoryID, float price, int quantity, int brandID, byte pinned, int discount, byte new1, byte popular, List<PropertyModel> properties, List<ImageModel> images)
         {

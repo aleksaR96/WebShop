@@ -22,6 +22,7 @@
                         @for (int j = i; (j - i < 4) && (j < Model.listOfPinnedProducts.discountProducts.Count); j++)
                         {
                             discountPrice = Model.listOfPinnedProducts.discountProducts[j].Price - ((Model.listOfPinnedProducts.discountProducts[j].Price / 100) * Model.listOfPinnedProducts.discountProducts[j].Discount);
+
                             <div class="mt-3 mt-md-0 col-6 col-md-3">
                                 <a asp-controller="Products" asp-action="GetProduct" asp-route-id="@Model.listOfPinnedProducts.discountProducts[j].ProductID">
                                     <div class="card border-0 h-100">

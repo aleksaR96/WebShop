@@ -14,35 +14,17 @@ namespace WebShop.UI.Console
         {
 
             CategoryBusiness cb = new CategoryBusiness();
-            CategoryModel kategorija = new CategoryModel();
-            kategorija.CategoryName = "TEST";
-            kategorija.CategoryID = 999;
-            kategorija.Icon = "";
-            kategorija.Image = "";
 
-            FeaturedPropertyModel prop1 = new FeaturedPropertyModel(kategorija.CategoryID, 1);
-            FeaturedPropertyModel prop2 = new FeaturedPropertyModel(kategorija.CategoryID, 3);
-            FeaturedPropertyModel prop3 = new FeaturedPropertyModel(kategorija.CategoryID, 8);
+            FeaturedPropertyModel fp1 = new FeaturedPropertyModel(100, 3);
+            FeaturedPropertyModel fp2 = new FeaturedPropertyModel(100, 12);
 
-            List<FeaturedPropertyModel> listaPropertija = new List<FeaturedPropertyModel>();
-            listaPropertija.Add(prop1);
-            listaPropertija.Add(prop2);
-            listaPropertija.Add(prop3);
+            CategoryModel cat = new CategoryModel(111, "test", "test", "test");
+            cat.FeaturedProperties = new List<FeaturedPropertyModel>{ fp1, fp2};
 
-            CategoryModel list = cb.AddCategory(kategorija);
+            cat = cb.AddCategory(cat);
 
-            WriteLine("\nDODATA: \n" + list);
 
-            list.CategoryName = "IZMENJENA";
-            list = cb.EditCategory(kategorija);
-            WriteLine("\nIZMENJENA: \n" + list);
-
-            //foreach(CategoryModel cat in list)
-            //{
-            //    WriteLine(cat);
-            //}
-
-            WriteLine(list);
+            WriteLine(cat);
 
             ReadKey();
 
