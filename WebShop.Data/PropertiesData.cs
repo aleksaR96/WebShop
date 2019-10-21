@@ -94,16 +94,18 @@ namespace WebShop.Data
             {
                 List<PropertyModel> outputList = new List<PropertyModel>();
                 PropertyModel output = null;
+                SqlCommand sqlCommand;
+                SqlDataReader sqlDataReader;
 
                 foreach (var prop in featuredProperties)
                 {
                     //poziva SP za svaki FP i dodaje u listu koju vraca
                     output = new PropertyModel();
-                    SqlCommand sqlCommand = base.createSqlCommandSP("SelectPropertyByProductIDAndPropertyID");
+                    sqlCommand = base.createSqlCommandSP("SelectPropertyByProductIDAndPropertyID");
                     sqlCommand.Parameters.Add(new SqlParameter("@ProductID", product.ProductID));
                     sqlCommand.Parameters.Add(new SqlParameter("@PropertyID", prop.PropertyID));
 
-                    SqlDataReader sqlDataReader = base.getSqlDataReader();
+                    sqlDataReader = base.getSqlDataReader();
 
                     while(sqlDataReader.Read())
                     {
@@ -116,6 +118,8 @@ namespace WebShop.Data
 
                         outputList.Add(output);
                     }
+
+                    sqlDataReader.Close();
                 }
 
                 base.closeConnection();

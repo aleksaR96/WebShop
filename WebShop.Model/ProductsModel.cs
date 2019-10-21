@@ -37,12 +37,16 @@ namespace WebShop.Model
             Popular = popular;
             Properties = properties;
             Images = images;
+            FeaturedProperties = new List<PropertyModel>();
+            FeaturedPropertiesName = new List<PropertyListModel>();
         }
 
         public ProductsModel()
         {
             Properties = new List<PropertyModel>();
             Images = new List<ImageModel>();
+            FeaturedProperties = new List<PropertyModel>();
+            FeaturedPropertiesName = new List<PropertyListModel>();
         }
 
         public ProductsModel(int id)
@@ -50,11 +54,20 @@ namespace WebShop.Model
             ProductID = id;
             Properties = new List<PropertyModel>();
             Images = new List<ImageModel>();
+            FeaturedProperties = new List<PropertyModel>();
+            FeaturedPropertiesName = new List<PropertyListModel>();
         }
 
         public override string ToString()
         {
-            return ProductID + " " + Name + " " + Description + " " + CategoryID + " " + Price + " " + Quantity + " " + BrandID + " " + Pinned + " " + Discount + " " + New + " " + Popular + " " + base.ToString();
+            string retString = ProductID + " " + Name + " " + Description + " " + CategoryID + " " + Price + " " + Quantity + " " + BrandID + " " + Pinned + " " + Discount + " " + New + " " + Popular + " " + base.ToString();
+            for(int i = 0; i < FeaturedProperties.Count; i++)
+            {
+                retString += " " + FeaturedPropertiesName[i].Value;
+                retString += " " + FeaturedProperties[i].Value;
+            }
+
+            return retString;
         }
     }
 }

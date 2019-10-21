@@ -13,18 +13,14 @@ namespace WebShop.UI.Console
         static void Main(string[] args)
         {
 
-            CategoryBusiness cb = new CategoryBusiness();
+            ProductsBusiness pb = new ProductsBusiness();
 
-            FeaturedPropertyModel fp1 = new FeaturedPropertyModel(100, 3);
-            FeaturedPropertyModel fp2 = new FeaturedPropertyModel(100, 12);
+            var a = pb.GetAllProducts();
 
-            CategoryModel cat = new CategoryModel(111, "test", "test", "test");
-            cat.FeaturedProperties = new List<FeaturedPropertyModel>{ fp1, fp2};
-
-            cat = cb.AddCategory(cat);
-
-
-            WriteLine(cat);
+            foreach(var b in a)
+            {
+                WriteLine(b);
+            }
 
             ReadKey();
 
