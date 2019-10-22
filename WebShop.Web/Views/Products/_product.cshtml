@@ -9,8 +9,10 @@
                 <div class="card-body pb-0">
                     <p class="h6">@Model.ProductsList[i].Name</p>
                     <p class="small">
-                        Procesor:<br>
-                        RAM:
+                        @for (int k = 0; k < Model.ProductsList[i].FeaturedProperties.Count; k++)
+                        {
+                            <span>@(@Model.ProductsList[i].FeaturedPropertiesName[k].Value): @(@Model.ProductsList[i].FeaturedProperties[k].Value)</span><br />
+                        }
                     </p>
                 </div>
                 <div class="card-footer border-0 bg-white pt-0">
