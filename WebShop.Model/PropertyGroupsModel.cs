@@ -8,6 +8,12 @@ namespace WebShop.Model
     {
         public int GroupID { get; set; }
         public string Name { get; set; }
+        public int CategoryID { get; set; }
+
+        public PropertyGroupsModel(int groupID, string name, int categoryID) : this(groupID, name)
+        {
+            CategoryID = categoryID;
+        }
 
         public PropertyGroupsModel(int groupID, string name)
         {

@@ -84,7 +84,7 @@ namespace WebShop.UI.Console
             //IPropertiesData prd = new PropertiesData();
             //prd.UpdatePropertyByProductIDAndPropertyID(new PropertyModel(15, 3, "Quad-Core"));
 
-            string[] procesori = { "Dual-Core", "Quad-Core", "Hexa-Core", "Octa-Core" };
+            /*string[] procesori = { "Dual-Core", "Quad-Core", "Hexa-Core", "Octa-Core" };
             string[] ram = { "2 Gb", "3 Gb", "4 Gb", "6 Gb"};
 
             IPropertiesData prd = new PropertiesData();
@@ -102,7 +102,9 @@ namespace WebShop.UI.Console
                 z = random2.Next(0, ram.Length);
                 prd.UpdatePropertyByProductIDAndPropertyID(new PropertyModel((int)prdu.ProductID, 3, procesori[b]));
                 prd.UpdatePropertyByProductIDAndPropertyID(new PropertyModel((int)prdu.ProductID, 12, ram[z]));
-            }
+            }*/
+            IPropertiesData prd = new PropertiesData();
+            prd.UpdatePropertyByProductIDAndPropertyID(new PropertyModel(6, 3, "Quad-Core"));
 
             ReadKey();
 
