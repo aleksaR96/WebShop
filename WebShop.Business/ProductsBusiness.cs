@@ -46,6 +46,16 @@ namespace WebShop.Business
             product.Properties = prd.SelectAllPropertiesByProductID(product);
             IImagesData imgd = new ImagesData();
             product.Images = imgd.SelectByProductID(product);
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
+
+            var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+            product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+            
+            foreach(var property in product.FeaturedProperties)
+            {
+                product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+            }
 
             return product;
         }
@@ -56,11 +66,21 @@ namespace WebShop.Business
             List<ProductsModel> products = pd.SelectProductsByCategoryID(catID);
             IPropertiesData prd = new PropertiesData();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
             foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -180,11 +200,21 @@ namespace WebShop.Business
             IPropertiesData prd = new PropertiesData();
             List<ProductsModel> products = pd.SelectAllPinnedDiscountProducts();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
-            foreach(ProductsModel product in products)
+            foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -196,11 +226,21 @@ namespace WebShop.Business
             IPropertiesData prd = new PropertiesData();
             List<ProductsModel> products = pd.SelectAllPinnedNewProducts();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
             foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -212,11 +252,21 @@ namespace WebShop.Business
             IPropertiesData prd = new PropertiesData();
             List<ProductsModel> products = pd.SelectAllPinnedPopularProducts();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
             foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -228,11 +278,21 @@ namespace WebShop.Business
             List<ProductsModel> products = pd.Select24ProductsWithOffset(offset);
             IPropertiesData prd = new PropertiesData();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
             foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -244,11 +304,21 @@ namespace WebShop.Business
             List<ProductsModel> products = pd.Select10ProductsWithOffset(offset);
             IPropertiesData prd = new PropertiesData();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
             foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -260,11 +330,21 @@ namespace WebShop.Business
             List<ProductsModel> products = pd.Select24ProductsByCategoryWithOffset(categoryID, offset);
             IPropertiesData prd = new PropertiesData();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
             foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -276,11 +356,21 @@ namespace WebShop.Business
             List<ProductsModel> products = pd.Select10ProductsByCategoryWithOffset(categoryID, offset);
             IPropertiesData prd = new PropertiesData();
             IImagesData imgd = new ImagesData();
+            IPropertyListData pld = new PropertyListData();
+            IFeaturedPropertyData fpd = new FeaturedPropertyData();
 
             foreach (ProductsModel product in products)
             {
                 product.Properties = prd.SelectAllPropertiesByProductID(product);
                 product.Images = imgd.SelectByProductID(product);
+
+                var featuredProperties = fpd.SelectFeaturedPropertiesByCategoryID(new CategoryModel(product.CategoryID));
+                product.FeaturedProperties = prd.SelectPropertyByProductIDAndPropertyID(product, featuredProperties);
+
+                foreach (var property in product.FeaturedProperties)
+                {
+                    product.FeaturedPropertiesName.Add(pld.SelectPropertyByPropertyID(property));
+                }
             }
 
             return products;
@@ -320,6 +410,7 @@ namespace WebShop.Business
 
         public ProductsModel GetOneProductByCategoryWithOffset(int categoryID, int offset)
         {
+            //METODA NE VRACA POTPUN PRODUCT, DODATA SAMO RADI PROBE
             IProductsData pd = new ProductsData();
             return pd.SelectOneProductByCategoryWithOffset(categoryID, offset);
         }

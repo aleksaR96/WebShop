@@ -37,7 +37,7 @@ namespace WebShop.Web.Controllers
             return Json(pb.Get24ProductsWithOffset(offset));
         }
 
-        //propa za slanje partial viewa
+        //proba za slanje partial viewa
         [HttpPost]
         public PartialViewResult LoadHtml()
         {

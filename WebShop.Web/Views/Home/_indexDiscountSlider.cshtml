@@ -33,8 +33,10 @@
                                         <div class="card-body pb-0">
                                             <p class="h6">@Model.listOfPinnedProducts.discountProducts[j].Name</p>
                                             <p class="small">
-                                                Procesor: @Model.listOfPinnedProducts.discountProducts[j].Properties[3].Value<br>
-                                                RAM: @Model.listOfPinnedProducts.discountProducts[j].Properties[12].Value
+                                                @for (int k = 0; k < Model.listOfPinnedProducts.discountProducts[j].FeaturedProperties.Count; k++)
+                                                {
+                                                    <span>@(@Model.listOfPinnedProducts.discountProducts[j].FeaturedPropertiesName[k].Value): @(@Model.listOfPinnedProducts.discountProducts[j].FeaturedProperties[k].Value)</span><br />
+                                                }
                                             </p>
                                         </div>
                                         <div class="card-footer border-0 bg-white pt-0">

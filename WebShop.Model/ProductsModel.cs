@@ -65,9 +65,23 @@ namespace WebShop.Model
             {
                 retString += " " + FeaturedPropertiesName[i].Value;
                 retString += " " + FeaturedProperties[i].Value;
+                retString += " " + i;
             }
 
             return retString;
+        }
+
+        public static ProductsModel GetProductModelFromListByID(List<ProductsModel> list, int id)
+        {
+            foreach(ProductsModel product in list)
+            {
+                if(product.ProductID == id)
+                {
+                    return product;
+                }
+            }
+
+            return null;
         }
     }
 }
