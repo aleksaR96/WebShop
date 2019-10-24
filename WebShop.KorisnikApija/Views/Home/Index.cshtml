@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid bg-primary p-3">
+    <div class="container">
+        <p class="h2 text-light">Dodavanje proizvoda <span class="small"><i class='fas fa-plus-circle'></i></span></p>
+    </div>
+</div>
+
+<div class="container pt-3">
+    <form class="" action="" method="post" name="form">
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="name">Ime:</label><br>
+                    <input class="form-control" type="text" id="name" name="name" value="" required style="width:40em">
+                </div>
+                <div class="form-group">
+                    <label for="description">Opis:</label><br>
+                    <textarea class="form-control" name="description" rows="8" style="width:40em; overflow:auto; resize:none;" required></textarea>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label for="selectCategoryID">Kategorija:</label><br>
+                    <select class="form-control" name="CategoryID" required id="selectCategoryID"></select>
+                </div>
+                <div class="form-group">
+                    <label for="selectBrandID">Brend:</label><br>
+                    <select class="form-control" name="BrandID" required id="selectBrandID">
+                        <option value="1">Motorola</option>
+                        <option value="2">Samsung</option>
+                        <option value="3">Apple</option>
+                        <option value="4">Nokia</option>
+                        <option value="5">Lenovo</option>
+                        <option value="6">Alcatel</option>
+                        <option value="7">ZTE</option>
+                        <option value="8">Huawei</option>
+                        <option value="9">Acer</option>
+                        <option value="10">Testa</option>
+                        <option value="11">LG</option>
+                        <option value="12">Microsoft</option>
+                        <option value="13">Asus</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Cena:</label><br>
+                    <input class="form-control" type="number" id="price" name="price" value="" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Količina:</label><br>
+                    <input class="form-control" type="number" id="quantity" name="quantity" value="0" min="0" required>
+                </div>
+            </div>
+
+            <div class="col">
+                <fieldset id="flag" class="mb-3">
+                    <div class="form-check">
+                        <label class="form-check-label text-danger" for="discount">
+                            <input type="radio" class="form-check-input" id="discount" name="flag" value="discount" onchange="toggleDiscount()">Sniženo
+                        </label>
+                    </div>
+
+                    <div class="bg-danger p-3" id="discountDiv" style="display: none;">
+                        <div class="form-group">
+                            <label for="discountAmount" class="text-light">Unesi sniženje:</label><br>
+                            <input class="form-control" type="number" id="discountAmount" name="discountAmount" value="0" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label text-warning" for="new">
+                            <input type="radio" class="form-check-input" id="new" name="flag" value="new" onchange="toggleDiscount()">Novo
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label text-primary" for="popular">
+                            <input type="radio" class="form-check-input" id="popular" name="flag" value="popular" onchange="toggleDiscount()">Popularno
+                        </label>
+                    </div>
+                </fieldset>
+                <p onclick="ponisti()" id="ponistiDugme" class="small">Poništi odabrano</p>
+
+                <div class="form-check">
+                    <label class="form-check-label" for="pinned">
+                        <input type="checkbox" class="form-check-input" id="pinned" name="pinned" value="pinned">Pinuj
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn btn-outline-secondary" name="cancel"><i class="far fa-times-circle"></i> Odustani</button>
+            <button type="submit" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" name=""><i class="far fa-check-circle"></i><span class="caret"></span> Sačuvaj</button>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Sačuvaj nacrt</a>
+                <a href="#" class="dropdown-item">Sačuvaj u bazi</a>
+                <a href="#" class="dropdown-item">Sačuvaj i objavi</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container-fluid bg-light mt-5 p-3">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="dimenzije">Dimenzije:</label><br>
+                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="div1"></div>
+
+<script type="text/javascript">
+
+      var discountRadio = document.getElementById("discount");
+
+      function toggleDiscount() {
+        if(discountRadio.checked == true) {
+          document.getElementById("discountDiv").style.display = "block";
+        } else {
+          document.getElementById("discountDiv").style.display = "none";
+          document.getElementById("discountAmount").value = 0;
+        }
+      }
+
+      $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'Home/LoadCategories',
+            success: function (result) {
+                $.each($.parseJSON(result), function (i, val) {
+                    /*$.each(val, function (j, obj) {
+                        $("#div1").append(obj[1] + "<br>");
+                    });*/
+                    $("#selectCategoryID").append("<option value='" + val["categoryID"] + "'>" + val["categoryName"] + "</option>");
+                });
+            }
+        });
+    });
+
+    function ponisti() {
+        document.getElementById("discount").checked = false;
+        document.getElementById("new").checked = false;
+        document.getElementById("popular").checked = false;
+        document.getElementById("discountDiv").style.display = "none";
+        document.getElementById("discountAmount").value = 0;
+    }
+</script>
