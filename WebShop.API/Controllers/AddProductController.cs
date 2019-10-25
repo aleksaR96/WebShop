@@ -13,7 +13,14 @@ namespace WebShop.API.Controllers
     public class AddProductController : ControllerBase
     {
         [HttpGet]
-        public ActionResult Get()
+        public ActionResult GetAllCategories()
+        {
+            CategoryBusiness cb = new CategoryBusiness();
+            return Ok(cb.GetAllCategories());
+        }
+
+        [HttpGet]
+        public ActionResult GetAllBrands()
         {
             CategoryBusiness cb = new CategoryBusiness();
             return Ok(cb.GetAllCategories());

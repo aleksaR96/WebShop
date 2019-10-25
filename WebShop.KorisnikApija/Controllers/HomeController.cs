@@ -23,6 +23,11 @@ namespace WebShop.KorisnikApija.Controllers
             return Ok(result);
         }
 
+        public async Task<ActionResult> LoadBrands()
+        {
+            var result = await GetBrandsAsync("");
+        }
+
         static async Task<string> GetCategoriesAsync(string path)
         {
             HttpClient client = new HttpClient();
