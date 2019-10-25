@@ -2,6 +2,7 @@
 @ID int,
 @Name nvarchar(30),
 @Alias nvarchar(30),
+@CategoryID int,
 @SupGroup int
 AS
 BEGIN
@@ -9,7 +10,8 @@ BEGIN
 	SET
 		Name = @Name,
 		Alias = @Alias,
-		SupGroup = @SupGroup
+		SupGroup = @SupGroup,
+		CategoryID = @CategoryID
 	WHERE ID = @ID;
 
 	SELECT *

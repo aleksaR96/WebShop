@@ -1,6 +1,7 @@
 ﻿CREATE PROC InsertPropertyGroup
 @Name nvarchar(30),
 @Alias nvarchar(30),
+@CategoryID int,
 @SupGroup int
 AS
 BEGIN
@@ -8,18 +9,21 @@ BEGIN
 	(
 		Name,
 		Alias,
-		SupGroup
+		SupGroup,
+		CategoryID
 	)
 	VALUES
 	(
 		@Name,
 		@Alias,
-		@SupGroup
+		@SupGroup,
+		@CategoryID
 	);
 
 	SELECT *
 	FROM PropertyGroups
 	WHERE Name = @Name
 		AND Alias = @Alias
-		AND SupGroup = @SupGroup;
+		AND SupGroup = @SupGroup
+		AND CategoryID = @CategoryID;
 END;
