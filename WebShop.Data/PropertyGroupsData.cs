@@ -7,7 +7,7 @@ using WebShop.Model;
 
 namespace WebShop.Data
 {
-    public class PropertyGroupsData : BaseData, IPropertyGroups
+    public class PropertyGroupsData : BaseData, IPropertyGroupsData
     {
         public bool Delete(PropertyGroupsModel propertyGroup)
         {
@@ -85,6 +85,35 @@ namespace WebShop.Data
             using (SqlConnection conn = base.createConnection())
             {
                 SqlCommand sqlCommand = base.createSqlCommandSP("SelectAllPropertyGroups");
+
+                SqlDataReader sqlDataReader = base.getSqlDataReader();
+                List<PropertyGroupsModel> outputList = new List<PropertyGroupsModel>();
+                PropertyGroupsModel output = null;
+
+                while (sqlDataReader.Read())
+                {
+                    output = new PropertyGroupsModel();
+                    output.GroupID = Convert.ToInt32(sqlDataReader["ID"]);
+                    output.CategoryID = Convert.ToInt32(sqlDataReader["CategoryID"]);
+                    output.SupGroup = Convert.ToInt32(sqlDataReader["SupGroup"]);
+                    output.Name = sqlDataReader["Name"].ToString();
+                    output.Alias = sqlDataReader["Alias"].ToString();
+                    output.State = ModelState.Selected;
+
+                    outputList.Add(output);
+                }
+
+                base.closeConnection();
+                return outputList;
+            }
+        }
+
+        public List<PropertyGroupsModel> SelectByCategoryID(CategoryModel category)
+        {
+            using (SqlConnection conn = base.createConnection())
+            {
+                SqlCommand sqlCommand = base.createSqlCommandSP("SelectPropertyGroupsByCategoryID");
+                sqlCommand.Parameters.Add(new SqlParameter("@CategoryID", category.CategoryID));
 
                 SqlDataReader sqlDataReader = base.getSqlDataReader();
                 List<PropertyGroupsModel> outputList = new List<PropertyGroupsModel>();

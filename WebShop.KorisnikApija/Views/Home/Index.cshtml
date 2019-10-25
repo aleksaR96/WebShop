@@ -196,6 +196,33 @@
                 });
             }
         });
+
+        $("#selectCategoryID").change(function () {
+            $("#div1").text = "";
+            //$("#selectCategoryID option:selected").click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'Home/LoadProperties/' + this.value,
+                    success: function (result) {
+                        //alert($.parseJSON(result));
+                        $.each($.parseJSON(result), function (i, val) {
+                            $("#div1").append(val["name"] + "<br>");
+                        });
+                    }
+                });
+            //});
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: 'Home/LoadProperties/' + this.value,
+            success: function (result) {
+                //alert($.parseJSON(result));
+                $.each($.parseJSON(result), function (i, val) {
+                    $("#div1").append(val["name"] + "<br>");
+                });
+            }
+        });
     });
 
     function ponisti() {

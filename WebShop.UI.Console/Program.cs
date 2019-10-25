@@ -14,24 +14,33 @@ namespace WebShop.UI.Console
         static void Main(string[] args)
         {
 
-            BrandsBusiness bb = new BrandsBusiness();
-            List<BrandModel> list = new List<BrandModel>();
-            list = bb.GetAllBrands();
+            PropertyGroupsBusiness pgb = new PropertyGroupsBusiness();
 
-            foreach (BrandModel novbr in list)
+            var items = pgb.GetAllPropertyGroups();
+
+            foreach(var item in items)
             {
-                WriteLine(novbr);
+                WriteLine(item);
             }
 
-            BrandModel novi = bb.GetBrand(new BrandModel(10));
-            WriteLine(novi);
+            var inserted = pgb.AddPropertyGroups(new PropertyGroupsModel("Proba", 200, "Proba", 0));
 
-            var dodat = bb.AddBrand(new BrandModel("Toshiba"));
-            WriteLine(dodat);
+            WriteLine("\n" + inserted);
 
+            var selected = pgb.GetPropertyGroups(inserted);
 
-            var izmenjen = bb.EditBrand(new BrandModel(dodat.ID, "Vox"));
-            WriteLine(izmenjen);
+            WriteLine("\n" + selected);
+
+            var updated = pgb.EditPropertyGroups(new PropertyGroupsModel(selected.GroupID, "Izmenjen", 0, "Proba", 0));
+
+            WriteLine("\n" + updated + "\n\n");
+
+            items = pgb.GetAllPropertyGroups();
+
+            foreach (var item in items)
+            {
+                WriteLine(item);
+            }
 
             ReadKey();
 

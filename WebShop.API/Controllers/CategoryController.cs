@@ -10,13 +10,14 @@ namespace WebShop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddProductController : ControllerBase
+    public class CategoryController : ControllerBase
     {
-        [HttpGet("{id}")]
+        [HttpGet]
         [Produces("application/json")]
-        public ActionResult Get(int id)
+        public ActionResult Get()
         {
-            return NotFound();
+            CategoryBusiness cb = new CategoryBusiness();
+            return Ok(cb.GetAllCategories());
         }
     }
 }

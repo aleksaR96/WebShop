@@ -151,5 +151,6 @@
     <Build Include="dbo\Stored Procedures\SelectPropertyByPropertyID.sql" />
     <Build Include="dbo\Stored Procedures\SelectPropertyByProductIDAndPropertyID.sql" />
     <Build Include="dbo\Tables\FilterProperties.sql" />
+    <Build Include="dbo\Stored Procedures\SelectPropertyGroupsByCategoryID.sql" />
   </ItemGroup>
 </Project>

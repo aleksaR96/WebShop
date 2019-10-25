@@ -12,19 +12,19 @@ namespace WebShop.Business
     {
         public List<PropertyGroupsModel> GetAllPropertyGroups()
         {
-            IPropertyGroups pg = new PropertyGroupsData();
+            IPropertyGroupsData pg = new PropertyGroupsData();
             return pg.SelectAll();
         }
 
         public PropertyGroupsModel GetPropertyGroups(PropertyGroupsModel propertyGroups)
         {
-            IPropertyGroups pg = new PropertyGroupsData();
+            IPropertyGroupsData pg = new PropertyGroupsData();
             return pg.Select(propertyGroups);
         }
 
         public PropertyGroupsModel AddPropertyGroups(PropertyGroupsModel propertyGroups)
         {
-            IPropertyGroups pg = new PropertyGroupsData();
+            IPropertyGroupsData pg = new PropertyGroupsData();
             
             PropertyGroupsModel output = null;
 
@@ -46,7 +46,7 @@ namespace WebShop.Business
 
         public PropertyGroupsModel EditPropertyGroups(PropertyGroupsModel propertyGroups)
         {
-            IPropertyGroups pg = new PropertyGroupsData();
+            IPropertyGroupsData pg = new PropertyGroupsData();
             PropertyGroupsModel output = null;
 
             try
@@ -62,6 +62,12 @@ namespace WebShop.Business
                 Console.WriteLine(e.Message);
             }
             return output;
+        }
+
+        public List<PropertyGroupsModel> GetPropertyGroupsByCategoryID(CategoryModel category)
+        {
+            IPropertyGroupsData pg = new PropertyGroupsData();
+            return pg.SelectByCategoryID(category);
         }
     }
 }
