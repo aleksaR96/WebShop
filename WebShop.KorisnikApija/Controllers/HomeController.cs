@@ -19,13 +19,15 @@ namespace WebShop.KorisnikApija.Controllers
         [HttpGet]
         public async Task<ActionResult> LoadCategories()
         {
-            var result = await GetCategoriesAsync("https://localhost:44315/api/AddProduct");
+            var result = await GetCategoriesAsync("https://localhost:44315/api/AddProduct/1");
             return Ok(result);
         }
 
+        [HttpGet]
         public async Task<ActionResult> LoadBrands()
         {
-            var result = await GetBrandsAsync("");
+            var result = await GetBrandsAsync("https://localhost:44315/api/AddProduct/2");
+            return Ok(result);
         }
 
         static async Task<string> GetCategoriesAsync(string path)
@@ -36,6 +38,17 @@ namespace WebShop.KorisnikApija.Controllers
 
             var result = await response.Content.ReadAsStringAsync();
            
+            return result;
+        }
+
+        static async Task<string> GetBrandsAsync(string path)
+        {
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(path);
+
+            var result = await response.Content.ReadAsStringAsync();
+
             return result;
         }
     }

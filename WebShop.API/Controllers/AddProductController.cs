@@ -12,18 +12,22 @@ namespace WebShop.API.Controllers
     [ApiController]
     public class AddProductController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult GetAllCategories()
+        [HttpGet("{id}")]
+        [Produces("application/json")]
+        public ActionResult Get(int id)
         {
-            CategoryBusiness cb = new CategoryBusiness();
-            return Ok(cb.GetAllCategories());
-        }
-
-        [HttpGet]
-        public ActionResult GetAllBrands()
-        {
-            CategoryBusiness cb = new CategoryBusiness();
-            return Ok(cb.GetAllCategories());
+            if(id == 1)
+            {
+                CategoryBusiness cb = new CategoryBusiness();
+                return Ok(cb.GetAllCategories());
+            }
+            else if (id == 2)
+            {
+                BrandsBusiness bb = new BrandsBusiness();
+                return Ok(bb.GetAllBrands());
+            }
+            
+            return NotFound();
         }
     }
 }
