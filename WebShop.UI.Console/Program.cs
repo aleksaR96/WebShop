@@ -35,27 +35,24 @@ namespace WebShop.UI.Console
                   WriteLine(brd);
               } */
 
-            BrandsData bd = new BrandsData();
-            var brands = bd.SelectAll();
+            BrandsBusiness bb = new BrandsBusiness();
+            List<BrandModel> list = new List<BrandModel>();
+            list = bb.GetAllBrands();
 
-            foreach (BrandModel brd in brands)
+            foreach (BrandModel novbr in list)
             {
-                WriteLine(brd);
+                WriteLine(novbr);
             }
 
-            BrandModel brand = bd.Insert(new BrandModel("Gorenje"));
-            WriteLine(brand + "\n");
-            brand = bd.Select(brand);
-            WriteLine(brand + "\n");
-            brand = bd.Update(new BrandModel(brand.ID, "Beko"));
-            WriteLine(brand + "\n");
-            bd.Delete(brand);
+            BrandModel novi = bb.GetBrand(new BrandModel(10));
+            WriteLine(novi);
 
-            brands = bd.SelectAll();
-            foreach (BrandModel brd in brands)
-            {
-                WriteLine(brd);
-            }
+            var dodat = bb.AddBrand(new BrandModel("Toshiba"));
+            WriteLine(dodat);
+
+
+            var izmenjen = bb.EditBrand(new BrandModel(dodat.ID, "Vox"));
+            WriteLine(izmenjen);
             ReadKey();
 
         }
