@@ -10,7 +10,6 @@ namespace WebShop.Business
 {
     public class PropertyGroupsBusiness
     {
-
         public List<PropertyGroupsModel> GetAllPropertyGroups()
         {
             IPropertyGroups pg = new PropertyGroupsData();
@@ -64,9 +63,5 @@ namespace WebShop.Business
             }
             return output;
         }
-       
-
     }
-
-    
 }

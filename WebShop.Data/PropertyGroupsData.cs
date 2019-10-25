@@ -7,7 +7,7 @@ using WebShop.Model;
 
 namespace WebShop.Data
 {
-    class PropertyGroupsData : BaseData, IPropertyGroups
+    public class PropertyGroupsData : BaseData, IPropertyGroups
     {
         public bool Delete(PropertyGroupsModel propertyGroup)
         {
