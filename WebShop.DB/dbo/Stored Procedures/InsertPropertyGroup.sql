@@ -15,5 +15,11 @@ BEGIN
 		@Name,
 		@Alias,
 		@SupGroup
-	)
+	);
+
+	SELECT *
+	FROM PropertyGroups
+	WHERE Name = @Name
+		AND Alias = @Alias
+		AND SupGroup = @SupGroup;
 END;

@@ -10,5 +10,9 @@ BEGIN
 		Name = @Name,
 		Alias = @Alias,
 		SupGroup = @SupGroup
-	WHERE ID = @ID
+	WHERE ID = @ID;
+
+	SELECT *
+	FROM PropertyGroups
+	WHERE ID = @ID;
 END;
