@@ -4,5 +4,9 @@
 AS
 BEGIN
 	UPDATE Brands 
-	SET Name = @Name
+	SET Name = @Name;
+
+	SELECT *
+	FROM Brands
+	WHERE ID = @ID;
 END;
