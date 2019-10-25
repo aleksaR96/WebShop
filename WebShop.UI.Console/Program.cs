@@ -13,32 +13,10 @@ namespace WebShop.UI.Console
     {
         static void Main(string[] args)
         {
-            /*   BrandsData bd = new BrandsData();
-              var brands = bd.SelectAll();
-
-              foreach (BrandModel brd in brands)
-              {
-                  WriteLine(brd);
-              }
-
-              BrandModel brand = bd.Insert(new BrandModel("Gorenje"));
-              WriteLine(brand + "\n");
-              brand = bd.Select(brand);
-              WriteLine(brand + "\n");
-              brand = bd.Update(new BrandModel(brand.ID, "Beko"));
-              WriteLine(brand + "\n");
-              bd.Delete(brand);
-
-              brands = bd.SelectAll();
-              foreach (BrandModel brd in brands)
-              {
-                  WriteLine(brd);
-              } */
-
             BrandsData bd = new BrandsData();
             var brands = bd.SelectAll();
 
-            foreach (BrandModel brd in brands)
+            foreach(BrandModel brd in brands)
             {
                 WriteLine(brd);
             }
@@ -56,6 +34,7 @@ namespace WebShop.UI.Console
             {
                 WriteLine(brd);
             }
+
             ReadKey();
 
         }
