@@ -14,7 +14,6 @@ namespace WebShop.UI.Console
         static void Main(string[] args)
         {
             
-
             ReadKey();
 
         }
