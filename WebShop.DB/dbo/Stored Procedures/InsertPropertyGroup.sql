@@ -1,13 +1,19 @@
 ﻿CREATE PROC InsertPropertyGroup
-@Name nvarchar(30)
+@Name nvarchar(30),
+@Alias nvarchar(30),
+@SupGroup int
 AS
 BEGIN
 	INSERT INTO PropertyGroups
 	(
-		Name
+		Name,
+		Alias,
+		SupGroup
 	)
 	VALUES
 	(
-		@Name
+		@Name,
+		@Alias,
+		@SupGroup
 	)
 END;
