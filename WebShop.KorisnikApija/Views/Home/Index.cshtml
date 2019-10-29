@@ -26,11 +26,15 @@
             <div class="col">
                 <div class="form-group">
                     <label for="selectCategoryID">Kategorija:</label><br>
-                    <select class="form-control" name="CategoryID" required id="selectCategoryID"></select>
+                    <select class="form-control" name="CategoryID" required id="selectCategoryID">
+                        <option value="">Odaberi kategoriju...</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="selectBrandID">Brend:</label><br>
-                    <select class="form-control" name="BrandID" required id="selectBrandID"></select>
+                    <select class="form-control" name="BrandID" required id="selectBrandID">
+                        <option value="">Odaberi brend...</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="price">Cena:</label><br>
@@ -213,16 +217,16 @@
             //});
         });
 
-        $.ajax({
-            type: 'GET',
-            url: 'Home/LoadProperties/' + this.value,
-            success: function (result) {
-                //alert($.parseJSON(result));
-                $.each($.parseJSON(result), function (i, val) {
-                    $("#div1").append(val["name"] + "<br>");
-                });
-            }
-        });
+        //$.ajax({
+        //    type: 'GET',
+        //    url: 'Home/LoadProperties/' + this.value,
+        //    success: function (result) {
+        //        //alert($.parseJSON(result));
+        //        $.each($.parseJSON(result), function (i, val) {
+        //            $("#div1").append(val["name"] + "<br>");
+        //        });
+        //    }
+        //});
     });
 
     function ponisti() {

@@ -30,10 +30,11 @@ namespace WebShop.KorisnikApija.Controllers
             return Ok(result);
         }
 
+        /*NE RADI PRIHVATANJE PARAMETRA IZ GET ZAHTEVA*/
         [HttpGet]
         public async Task<ActionResult> LoadProperties(int categoryID)
         {
-            var result = await GetPropertiesAsync("https://localhost:44315/api/PropertyGroups?id=" + categoryID);
+            var result = await GetPropertiesAsync("https://localhost:44315/api/PropertyGroups/" + categoryID);
             return Ok(result);
         }
 

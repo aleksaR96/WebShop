@@ -21,13 +21,12 @@ namespace WebShop.API.Controllers
             return Ok(pgb.GetAllPropertyGroups());
         }
 
-        /* NE RADI */
-        //[HttpGet("{id}")]
-        //[Produces("application/json")]
-        //public ActionResult Get(int id)
-        //{
-        //    PropertyGroupsBusiness pgb = new PropertyGroupsBusiness();
-        //    return Ok(pgb.GetPropertyGroupsByCategoryID(new CategoryModel(id)));
-        //}
+        [HttpGet("{id}")]
+        [Produces("application/json")]
+        public ActionResult Get(int id)
+        {
+            PropertyGroupsBusiness pgb = new PropertyGroupsBusiness();
+            return Ok(pgb.GetPropertyGroupsByCategoryID(new CategoryModel(id)));
+        }
     }
 }
