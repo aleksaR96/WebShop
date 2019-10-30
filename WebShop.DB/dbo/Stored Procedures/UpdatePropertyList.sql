@@ -8,5 +8,9 @@ BEGIN
 	SET
 		Name = @Name,
 		GroupID = @GroupID
-	WHERE ID = @ID
+	WHERE ID = @ID;
+
+	SELECT *
+	FROM PropertyList
+	WHERE ID = @ID;
 END;

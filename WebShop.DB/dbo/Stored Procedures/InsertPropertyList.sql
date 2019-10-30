@@ -9,5 +9,11 @@ BEGIN
 		(
 			@Name,
 			@GroupID
-		)
+		);
+	SELECT *
+	FROM PropertyList
+	WHERE
+		Name = @Name
+		AND
+		GroupID = @GroupID;
 END;
