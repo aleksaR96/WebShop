@@ -209,9 +209,9 @@
                 url: 'Home/LoadProperties/'/* + this.value*/,
                 data: { 'categoryID': this.value },
                     success: function (result) {
-                        //alert($.parseJSON(result));
-                        $.each($.parseJSON(result), function (i, val) {
-                            $("#div1").append(val["name"] + "<br>");
+                        //alert(result);
+                        $.each(result, function (i, val) {
+                            $("#div1").append(val["propertyGroupModel"]["name"] + "<br>");
                         });
                     }
                 });

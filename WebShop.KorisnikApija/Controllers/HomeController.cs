@@ -5,7 +5,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WebShop.KorisnikApija.Models;
+using WebShop.Model;
 
 namespace WebShop.KorisnikApija.Controllers
 {
@@ -33,8 +35,19 @@ namespace WebShop.KorisnikApija.Controllers
         [HttpGet]
         public async Task<ActionResult> LoadProperties(int categoryID)
         {
-            var result = await GetPropertiesAsync("https://localhost:44315/api/PropertyGroups/" + categoryID);
-            return Ok(result);
+            var result = await GetPropertyGroupsAsync("https://localhost:44315/api/PropertyGroups/" + categoryID);
+            List<PropertyGroup> propertyGroupList = new List<PropertyGroup>();
+            var objects = JsonConvert.DeserializeObject<List<PropertyGroupsModel>>(result);
+            foreach (var obj in objects)
+            {
+                PropertyGroup pg = new PropertyGroup();
+                pg.PropertyGroupModel = obj;
+
+
+
+                propertyGroupList.Add(pg);
+            }
+            return Ok(propertyGroupList);
         }
 
         static async Task<string> GetCategoriesAsync(string path)
@@ -59,7 +72,7 @@ namespace WebShop.KorisnikApija.Controllers
             return result;
         }
 
-        static async Task<string> GetPropertiesAsync(string path)
+        static async Task<string> GetPropertyGroupsAsync(string path)
         {
             HttpClient client = new HttpClient();
 
