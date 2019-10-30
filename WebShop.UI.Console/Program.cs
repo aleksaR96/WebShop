@@ -14,32 +14,31 @@ namespace WebShop.UI.Console
         static void Main(string[] args)
         {
 
-            PropertyGroupsBusiness pgb = new PropertyGroupsBusiness();
+            IPropertyListData pld = new PropertyListData();
 
-            var items = pgb.GetAllPropertyGroups();
+            var all = pld.SelectAll();
 
-            foreach(var item in items)
+            foreach(var one in all)
             {
-                WriteLine(item);
+                WriteLine(one);
             }
 
-            var inserted = pgb.AddPropertyGroups(new PropertyGroupsModel("Proba", 200, "Proba", 0));
+            var first = pld.Select(all[0]);
+            WriteLine("\n\nSelect\n" + first);
 
-            WriteLine("\n" + inserted);
+            var inserted = pld.Insert(new PropertyListModel(1, "PROBA"));
+            WriteLine("\n\nInsert\n" + inserted);
 
-            var selected = pgb.GetPropertyGroups(inserted);
+            var updated = pld.Update(new PropertyListModel(inserted.PropertyID, 1, "PROBA IZMENJEN"));
+            WriteLine("\n\nUpdate\n" + updated);
 
-            WriteLine("\n" + selected);
+            pld.Delete(updated);
 
-            var updated = pgb.EditPropertyGroups(new PropertyGroupsModel(selected.GroupID, "Izmenjen", 0, "Proba", 0));
-
-            WriteLine("\n" + updated + "\n\n");
-
-            items = pgb.GetAllPropertyGroups();
-
-            foreach (var item in items)
+            all = pld.SelectAll();
+            WriteLine("\n\nNakon delete\n");
+            foreach (var one in all)
             {
-                WriteLine(item);
+                WriteLine(one);
             }
 
             ReadKey();
