@@ -1,14 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="container-fluid bg-primary p-3">
-    <div class="container">
-        <p class="h2 text-light">Dodavanje proizvoda <span class="small"><i class='fas fa-plus-circle'></i></span></p>
-    </div>
+<div class="container bg-primary p-3 mb-0">
+    <p class="h2 text-light">Dodavanje proizvoda <span class="small"><i class='fas fa-plus-circle'></i></span></p>
 </div>
 
-<div class="container pt-3">
+<div class="container p-3 bg-light border border-primary rounded-bottom">
+
     <form class="" action="" method="post" name="form">
 
         <div class="row">
@@ -83,9 +81,12 @@
             </div>
         </div>
 
+        <div class="container-fluid mt-1 p-0" id="propertiesDiv">
+        </div>
+
         <div class="btn-group">
             <button class="btn btn-outline-secondary" name="cancel"><i class="far fa-times-circle"></i> Odustani</button>
-            <button type="submit" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" name=""><i class="far fa-check-circle"></i><span class="caret"></span> Sačuvaj</button>
+            <button type="submit" class="btn btn-success dropdown-toggle" data-toggle="dropdown" name=""><i class="far fa-check-circle"></i><span class="caret"></span> Sačuvaj</button>
             <div class="dropdown-menu">
                 <a href="#" class="dropdown-item">Sačuvaj nacrt</a>
                 <a href="#" class="dropdown-item">Sačuvaj u bazi</a>
@@ -93,9 +94,6 @@
             </div>
         </div>
     </form>
-</div>
-
-<div class="container-fluid bg-light mt-5 p-0" id="propertiesDiv">
 </div>
 
 <div id="div1"></div>
@@ -148,7 +146,7 @@
                     success: function (result) {
                         //alert(result);
                         $.each(result, function (i, val) {
-                            $("#propertiesDiv").append("<div class='bg-primary container-fluid py-1 mt-3'><p class='h5 text-white'>" + val['propertyGroupModel']['alias'] + "</p></div><br><div class='row px-3' id='" + val['propertyGroupModel']['name'] + "'></div>");
+                            $("#propertiesDiv").append("<div class='bg-primary container-fluid py-1 mt-3'><p class='h5 text-white m-0'>" + val['propertyGroupModel']['alias'] + "</p></div><br><div class='row px-3' id='" + val['propertyGroupModel']['name'] + "'></div>");
 
                             var param = val['propertyGroupModel']['name'];
 
