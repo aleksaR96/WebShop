@@ -155,5 +155,33 @@ namespace WebShop.Data
                 return output;
             }
         }
+
+        public List<PropertyListModel> SelectPropertyListByPropertyGroup(PropertyGroupsModel propertyGroup)
+        {
+            using (SqlConnection conn = base.createConnection())
+            {
+                SqlCommand sqlCommand = base.createSqlCommandSP("SelectPropertyListByPropertyGroup");
+                sqlCommand.Parameters.Add(new SqlParameter("@GroupID", propertyGroup.GroupID));
+
+                SqlDataReader sqlDataReader = base.getSqlDataReader();
+
+                List<PropertyListModel> outputList = new List<PropertyListModel>();
+                PropertyListModel output = null;
+
+                while(sqlDataReader.Read())
+                {
+                    output = new PropertyListModel();
+                    output.GroupID = Convert.ToInt32(sqlDataReader["GroupID"]);
+                    output.PropertyID = Convert.ToInt32(sqlDataReader["ID"]);
+                    output.Value = sqlDataReader["Name"].ToString();
+                    output.State = ModelState.Selected;
+
+                    outputList.Add(output);
+                }
+
+                base.closeConnection();
+                return outputList;
+            }
+        }
     }
 }

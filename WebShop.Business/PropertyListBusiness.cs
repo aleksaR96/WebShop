@@ -60,5 +60,10 @@ namespace WebShop.Business
 
             return output;
         }
+        public List<PropertyListModel> GetAllPropertyListByPropertyGroup(PropertyGroupsModel propertyGroup)
+        {
+            IPropertyListData pld = new PropertyListData();
+            return pld.SelectPropertyListByPropertyGroup(propertyGroup);
+        }
     }
 }
