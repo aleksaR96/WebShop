@@ -17,6 +17,12 @@ namespace WebShop.Model
             Value = value;
         }
 
+        public PropertyListModel(int groupID, string value)
+        {
+            GroupID = groupID;
+            Value = value;
+        }
+
         public PropertyListModel()
         {
         }
