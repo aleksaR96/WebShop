@@ -19,7 +19,7 @@ namespace WebShop.Data
 
         protected BaseData()
         {
-            connectionString = "Server=BEL-STESIM-LT01\\SQLEXPRESS03;Database=WebShop;Trusted_Connection=true";
+            connectionString = "Server=DESKTOP-FU9ST0O\\SQLEXPRESS;Database=WebShop;Trusted_Connection=true";
         }
 
         //vraca sqlconnection, otvara konekciju sa bazom ako vec nije

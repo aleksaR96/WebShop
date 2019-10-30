@@ -20,7 +20,7 @@
 <!-- Tab panes -->
 <div class="tab-content">
     <div class="tab-pane container fade active show p-0" id="add">
-        <div class="container p-3 border border-gray rounded-bottom rounded-right">
+        <div class="container p-3 border rounded-bottom rounded-right">
 
             <form class="" action="" method="post" name="form">
 
@@ -57,30 +57,33 @@
                         </div>
                     </div>
 
-                    <div class="col small">
+                    <div class="col small border-left">
                         <fieldset id="flag" class="mb-3">
                             <div class="form-check">
                                 <label class="form-check-label text-danger" for="discount">
                                     <input type="radio" class="form-check-input" id="discount" name="flag" value="discount" onchange="toggleDiscount()">Sniženo
+                                    <span class="checkmark"></span>
                                 </label>
                             </div>
 
-                            <div class="bg-danger p-3" id="discountDiv" style="display: none;">
+                            <div class="border border-danger rounded-lg p-3 mt-2 mb-3" id="discountDiv" style="display: none;">
                                 <div class="form-group">
-                                    <label for="discountAmount" class="text-light">Unesi sniženje:</label><br>
-                                    <input class="form-control" type="number" id="discountAmount" name="discountAmount" value="0" min="0">
+                                    <label for="discountAmount" class="text-danger">Unesi sniženje: <span class="badge badge-danger badge-pill">%</span></label><br>
+                                    <input class="form-control form-control-sm" type="number" id="discountAmount" name="discountAmount" value="0" min="0">
                                 </div>
                             </div>
 
                             <div class="form-check">
                                 <label class="form-check-label text-warning" for="new">
                                     <input type="radio" class="form-check-input" id="new" name="flag" value="new" onchange="toggleDiscount()">Novo
+                                    <span class="checkmark"></span>
                                 </label>
                             </div>
 
                             <div class="form-check">
                                 <label class="form-check-label text-primary" for="popular">
                                     <input type="radio" class="form-check-input" id="popular" name="flag" value="popular" onchange="toggleDiscount()">Popularno
+                                    <span class="checkmark"></span>
                                 </label>
                             </div>
                         </fieldset>
@@ -89,12 +92,22 @@
                         <div class="form-check">
                             <label class="form-check-label" for="pinned">
                                 <input type="checkbox" class="form-check-input" id="pinned" name="pinned" value="pinned">Pinuj
+                                <span class="checkmark"></span>
                             </label>
                         </div>
                     </div>
                 </div>
 
                 <div class="container-fluid mt-1 p-0 small" id="propertiesDiv" style="display:none;">
+                </div>
+
+                <div class="container-fluid mt-1 p-0 small" id="imagesDiv">
+                    <p class="h3 text-dark mb-3 border-bottom pb-2">Slike:</p>
+                    <label class="upload-image-button text-center text-secondary pt-2">
+                        <input type="file" />
+                        <span class="small"><i class='fas fa-plus'></i></span><br />
+                        <span class="small">Dodaj sliku</span>
+                    </label>
                 </div>
 
                 <div class="container-fluid text-right p-0">
@@ -159,7 +172,7 @@
             if (this.value == "") {
                 $("#propertiesDiv").html("");
             } else {
-                $("#propertiesDiv").html('<p class="h3 text-dark pb-3">Specifikacije:</p>');
+                $("#propertiesDiv").html('<p class="h3 text-dark mb-3 border-bottom pb-2">Specifikacije:</p>');
             }
             $("#propertiesDiv").css({ display: "none" });
             //$("#selectCategoryID option:selected").click(function () {
@@ -170,7 +183,7 @@
                 success: function (result) {
                     //alert(result);
                     $.each(result, function (i, val) {
-                        $("#propertiesDiv").append("<div class='border border-top-0 border-right-0 border-left-0 border-primary container-fluid py-1 mt-3'><p class='h5 text-primary m-0'>" + val['propertyGroupModel']['alias'] + "</p></div><br><div class='row px-3' id='" + val['propertyGroupModel']['name'] + "'></div>");
+                        $("#propertiesDiv").append("<div class='container-fluid py-1 mt-3'><p class='h5 text-primary m-0'>" + val['propertyGroupModel']['alias'] + "</p></div><br><div class='row px-3' id='" + val['propertyGroupModel']['name'] + "'></div>");
 
                         var param = val['propertyGroupModel']['name'];
 

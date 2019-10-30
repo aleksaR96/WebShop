@@ -72,3 +72,85 @@ body {
     -webkit-appearance: none;
     box-shadow: none !important;
 }
+.upload-image-button input {
+    display: none;
+}
+.upload-image-button {
+    width: 5em;
+    height: 5em;
+    border: 1px solid #ced4da;
+    display: block;
+    cursor: pointer;
+}
+.upload-image-button:hover {
+    border-color: #007bff;
+}
+
+.form-check {
+    padding-left: 0;
+}
+/* Customize the label (the container) */
+.form-check-label {
+    display: block;
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+    .form-check-label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.form-check-label:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.form-check-label input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.form-check-label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.form-check-label .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+}
