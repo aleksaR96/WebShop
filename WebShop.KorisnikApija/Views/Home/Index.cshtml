@@ -202,11 +202,12 @@
         });
 
         $("#selectCategoryID").change(function () {
-            $("#div1").text = "";
+            $("#div1").html('');
             //$("#selectCategoryID option:selected").click(function () {
-                $.ajax({
-                    type: 'GET',
-                    url: 'Home/LoadProperties/' + this.value,
+            $.ajax({
+                type: 'GET',
+                url: 'Home/LoadProperties/'/* + this.value*/,
+                data: { 'categoryID': this.value },
                     success: function (result) {
                         //alert($.parseJSON(result));
                         $.each($.parseJSON(result), function (i, val) {
