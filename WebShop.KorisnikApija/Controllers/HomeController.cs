@@ -30,7 +30,6 @@ namespace WebShop.KorisnikApija.Controllers
             return Ok(result);
         }
 
-        /*NE RADI PRIHVATANJE PARAMETRA IZ GET ZAHTEVA*/
         [HttpGet]
         public async Task<ActionResult> LoadProperties(int categoryID)
         {
