@@ -43,8 +43,10 @@ namespace WebShop.KorisnikApija.Controllers
                 PropertyGroup pg = new PropertyGroup();
                 pg.PropertyGroupModel = obj;
 
-
-
+                var properties = await GetPropertyListAsync("https://localhost:44315/api/Properties/" + pg.PropertyGroupModel.GroupID);
+                List<PropertyListModel> propertyList = new List<PropertyListModel>();
+                pg.PropertyList = JsonConvert.DeserializeObject<List<PropertyListModel>>(properties);
+                
                 propertyGroupList.Add(pg);
             }
             return Ok(propertyGroupList);
@@ -73,6 +75,17 @@ namespace WebShop.KorisnikApija.Controllers
         }
 
         static async Task<string> GetPropertyGroupsAsync(string path)
+        {
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage response = await client.GetAsync(path);
+
+            var result = await response.Content.ReadAsStringAsync();
+
+            return result;
+        }
+
+        static async Task<string> GetPropertyListAsync(string path)
         {
             HttpClient client = new HttpClient();
 
