@@ -13,5 +13,6 @@ namespace WebShop.Interfaces
         PropertyListModel Update(PropertyListModel propertyList);
         PropertyListModel Insert(PropertyListModel propertyList);
         bool Delete(PropertyListModel propertyList);
+        List<PropertyListModel> SelectPropertyListByPropertyGroup(PropertyGroupsModel propertyGroup);
     }
 }
