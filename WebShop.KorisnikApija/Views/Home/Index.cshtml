@@ -94,7 +94,7 @@
                     </div>
                 </div>
 
-                <div class="container-fluid mt-1 p-0 small" id="propertiesDiv">
+                <div class="container-fluid mt-1 p-0 small" id="propertiesDiv" style="display:none;">
                 </div>
 
                 <div class="container-fluid text-right p-0">
@@ -156,7 +156,12 @@
 
         $("#selectCategoryID").change(function () {
             $("#div1").html('');
-            $("#propertiesDiv").html('<p class="h3 text-dark pb-3">Specifikacije:</p>');
+            if (this.value == "") {
+                $("#propertiesDiv").html("");
+            } else {
+                $("#propertiesDiv").html('<p class="h3 text-dark pb-3">Specifikacije:</p>');
+            }
+            $("#propertiesDiv").css({ display: "none" });
             //$("#selectCategoryID option:selected").click(function () {
             $.ajax({
                 type: 'GET',
@@ -173,6 +178,7 @@
                             $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val["value"] + ":</label><input type='text' class='form-control form-control-sm'></input></div></div>");
                         }, param);
                     });
+                    $("#propertiesDiv").fadeIn(500);
                 }
             });
             //});
