@@ -1,101 +1,118 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="container bg-primary p-3 mb-0 mt-5 rounded-top">
-    <p class="h3 text-light">Dodavanje proizvoda <span class="small"><i class='fas fa-plus-circle'></i></span></p>
-</div>
 
-<div class="container p-3 border border-primary rounded-bottom bg-light">
+<ul class="nav nav-tabs border-0 mt-4">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#add">Dodavanje proizvoda <span class="small"><i class='fas fa-plus-circle'></i></span></a>
+    </li>
+    <li class="nav-item border-0">
+        <a class="nav-link" data-toggle="tab" href="#edit">Izmena proizvoda <span class="small"><i class='fas fa-edit'></i></span></a>
+    </li>
+    <li class="nav-item border-0">
+        <a class="nav-link" data-toggle="tab" href="#menu2">Statistika <span class="small"><i class='fas fa-chart-bar'></i></span></a>
+    </li>
+    <li class="nav-item border-0 ml-auto">
+        <a class="nav-link"  href="#">Odjava <span class="small"><i class='fas fa-sign-out-alt'></i> Aleksa Ristić</span></a>
+    </li>
+</ul>
 
-    <form class="" action="" method="post" name="form">
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane container fade active show p-0" id="add">
+        <div class="container p-3 border border-gray rounded-bottom rounded-right">
 
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="name">Ime:</label><br>
-                    <input class="form-control" type="text" id="name" name="name" value="" required style="width:40em">
-                </div>
-                <div class="form-group">
-                    <label for="description">Opis:</label><br>
-                    <textarea class="form-control" name="description" rows="8" style="width:40em; overflow:auto; resize:none;" required></textarea>
-                </div>
-            </div>
+            <form class="" action="" method="post" name="form">
 
-            <div class="col">
-                <div class="form-group">
-                    <label for="selectCategoryID">Kategorija:</label><br>
-                    <select class="form-control" name="CategoryID" required id="selectCategoryID">
-                        <option value="">Odaberi kategoriju...</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="selectBrandID">Brend:</label><br>
-                    <select class="form-control" name="BrandID" required id="selectBrandID">
-                        <option value="">Odaberi brend...</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="price">Cena:</label><br>
-                    <input class="form-control" type="number" id="price" name="price" value="" min="0" required>
-                </div>
-                <div class="form-group">
-                    <label for="quantity">Količina:</label><br>
-                    <input class="form-control" type="number" id="quantity" name="quantity" value="0" min="0" required>
-                </div>
-            </div>
-
-            <div class="col">
-                <fieldset id="flag" class="mb-3">
-                    <div class="form-check">
-                        <label class="form-check-label text-danger" for="discount">
-                            <input type="radio" class="form-check-input" id="discount" name="flag" value="discount" onchange="toggleDiscount()">Sniženo
-                        </label>
-                    </div>
-
-                    <div class="bg-danger p-3" id="discountDiv" style="display: none;">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
                         <div class="form-group">
-                            <label for="discountAmount" class="text-light">Unesi sniženje:</label><br>
-                            <input class="form-control" type="number" id="discountAmount" name="discountAmount" value="0" min="0">
+                            <input class="form-control border-top-0 border-right-0 border-left-0 rounded-0" type="text" id="name" name="name" value="" required style="font-size: 2em;" placeholder="Unesi ime proizvoda...">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control border-0 rounded-0" name="description" id="description" rows="8" style="max-width: 100%; overflow:auto; resize:none;" required placeholder="Unesi opis proizvoda..."></textarea>
                         </div>
                     </div>
 
-                    <div class="form-check">
-                        <label class="form-check-label text-warning" for="new">
-                            <input type="radio" class="form-check-input" id="new" name="flag" value="new" onchange="toggleDiscount()">Novo
-                        </label>
+                    <div class="col small">
+                        <div class="form-group">
+                            <label for="selectCategoryID">Kategorija:</label><br>
+                            <select class="form-control form-control-sm" name="CategoryID" required id="selectCategoryID">
+                                <option value="">Odaberi kategoriju...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="selectBrandID">Brend:</label><br>
+                            <select class="form-control form-control-sm" name="BrandID" required id="selectBrandID">
+                                <option value="">Odaberi brend...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Cena:</label><br>
+                            <input class="form-control form-control-sm" type="number" id="price" name="price" value="" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Količina:</label><br>
+                            <input class="form-control form-control-sm" type="number" id="quantity" name="quantity" value="0" min="0" required>
+                        </div>
                     </div>
 
-                    <div class="form-check">
-                        <label class="form-check-label text-primary" for="popular">
-                            <input type="radio" class="form-check-input" id="popular" name="flag" value="popular" onchange="toggleDiscount()">Popularno
-                        </label>
+                    <div class="col small">
+                        <fieldset id="flag" class="mb-3">
+                            <div class="form-check">
+                                <label class="form-check-label text-danger" for="discount">
+                                    <input type="radio" class="form-check-input" id="discount" name="flag" value="discount" onchange="toggleDiscount()">Sniženo
+                                </label>
+                            </div>
+
+                            <div class="bg-danger p-3" id="discountDiv" style="display: none;">
+                                <div class="form-group">
+                                    <label for="discountAmount" class="text-light">Unesi sniženje:</label><br>
+                                    <input class="form-control" type="number" id="discountAmount" name="discountAmount" value="0" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label text-warning" for="new">
+                                    <input type="radio" class="form-check-input" id="new" name="flag" value="new" onchange="toggleDiscount()">Novo
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <label class="form-check-label text-primary" for="popular">
+                                    <input type="radio" class="form-check-input" id="popular" name="flag" value="popular" onchange="toggleDiscount()">Popularno
+                                </label>
+                            </div>
+                        </fieldset>
+                        <p onclick="ponisti()" id="ponistiDugme" class="small">Poništi odabrano</p>
+
+                        <div class="form-check">
+                            <label class="form-check-label" for="pinned">
+                                <input type="checkbox" class="form-check-input" id="pinned" name="pinned" value="pinned">Pinuj
+                            </label>
+                        </div>
                     </div>
-                </fieldset>
-                <p onclick="ponisti()" id="ponistiDugme" class="small">Poništi odabrano</p>
-
-                <div class="form-check">
-                    <label class="form-check-label" for="pinned">
-                        <input type="checkbox" class="form-check-input" id="pinned" name="pinned" value="pinned">Pinuj
-                    </label>
                 </div>
-            </div>
-        </div>
 
-        <div class="container-fluid mt-1 p-0 small" id="propertiesDiv">
-        </div>
-
-        <div class="container-fluid text-right p-0">
-            <div class="btn-group btn-group-sm">
-                <button class="btn btn-outline-secondary" name="cancel"><i class="far fa-times-circle"></i> Odustani</button>
-                <button type="submit" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" name=""><i class="far fa-check-circle"></i><span class="caret"></span> Sačuvaj</button>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Sačuvaj nacrt</a>
-                    <a href="#" class="dropdown-item">Sačuvaj u bazi</a>
-                    <a href="#" class="dropdown-item">Sačuvaj i objavi</a>
+                <div class="container-fluid mt-1 p-0 small" id="propertiesDiv">
                 </div>
-            </div>
+
+                <div class="container-fluid text-right p-0">
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-secondary" name="cancel"><i class="far fa-times-circle"></i> Odustani</button>
+                        <button type="submit" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" name=""><i class="far fa-check-circle"></i><span class="caret"></span> Sačuvaj</button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Sačuvaj nacrt</a>
+                            <a href="#" class="dropdown-item">Sačuvaj u bazi</a>
+                            <a href="#" class="dropdown-item">Sačuvaj i objavi</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
+    <div class="tab-pane container fade" id="edit">...</div>
+    <div class="tab-pane container fade" id="menu2">...</div>
 </div>
 
 <div id="div1"></div>
@@ -145,19 +162,19 @@
                 type: 'GET',
                 url: 'Home/LoadProperties/'/* + this.value*/,
                 data: { 'categoryID': this.value },
-                    success: function (result) {
-                        //alert(result);
-                        $.each(result, function (i, val) {
-                            $("#propertiesDiv").append("<div class='border border-top-0 border-right-0 border-left-0 border-primary container-fluid py-1 mt-3'><p class='h5 text-primary m-0'>" + val['propertyGroupModel']['alias'] + "</p></div><br><div class='row px-3' id='" + val['propertyGroupModel']['name'] + "'></div>");
+                success: function (result) {
+                    //alert(result);
+                    $.each(result, function (i, val) {
+                        $("#propertiesDiv").append("<div class='border border-top-0 border-right-0 border-left-0 border-primary container-fluid py-1 mt-3'><p class='h5 text-primary m-0'>" + val['propertyGroupModel']['alias'] + "</p></div><br><div class='row px-3' id='" + val['propertyGroupModel']['name'] + "'></div>");
 
-                            var param = val['propertyGroupModel']['name'];
+                        var param = val['propertyGroupModel']['name'];
 
-                            $.each(val["propertyList"], function (i, val) {
-                                $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val["value"] +":</label><input type='text' class='form-control form-control-sm'></input></div></div>");
-                            }, param);
-                        });
-                    }
-                });
+                        $.each(val["propertyList"], function (i, val) {
+                            $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val["value"] + ":</label><input type='text' class='form-control form-control-sm'></input></div></div>");
+                        }, param);
+                    });
+                }
+            });
             //});
         });
 
