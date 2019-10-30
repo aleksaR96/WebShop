@@ -95,71 +95,7 @@
     </form>
 </div>
 
-<div class="container-fluid bg-light mt-5 p-3">
-    <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
-                <label for="dimenzije">Dimenzije:</label><br>
-                <input class="form-control" type="text" id="dimenzije" name="dimenzije" value="" required>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid bg-light mt-5 p-0" id="propertiesDiv">
 </div>
 
 <div id="div1"></div>
@@ -203,6 +139,7 @@
 
         $("#selectCategoryID").change(function () {
             $("#div1").html('');
+            $("#properties").html('');
             //$("#selectCategoryID option:selected").click(function () {
             $.ajax({
                 type: 'GET',
@@ -211,7 +148,13 @@
                     success: function (result) {
                         //alert(result);
                         $.each(result, function (i, val) {
-                            $("#div1").append(val["propertyGroupModel"]["name"] + "<br>");
+                            $("#propertiesDiv").append("<div class='bg-primary container-fluid py-1 mt-3'><p class='h5 text-white'>" + val['propertyGroupModel']['alias'] + "</p></div><br><div class='row px-3' id='" + val['propertyGroupModel']['name'] + "'></div>");
+
+                            var param = val['propertyGroupModel']['name'];
+
+                            $.each(val["propertyList"], function (i, val) {
+                                $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val["value"] +"</label><input type='text' class='form-control'></input></div></div>");
+                            }, param);
                         });
                     }
                 });
