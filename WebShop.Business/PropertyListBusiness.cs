@@ -37,6 +37,7 @@ namespace WebShop.Business
         public PropertyListModel AddPropertyList(PropertyListModel propertyList)
         {
             IPropertyListData pld = new PropertyListData();
+            IPropertyValueData pvd = new PropertyValueData();
             PropertyListModel output = null;
 
             using(TransactionScope scope = new TransactionScope())
@@ -44,6 +45,11 @@ namespace WebShop.Business
                 try
                 {
                     output = pld.Insert(propertyList);
+                    output.Values = new List<PropertyValueModel>();
+                    foreach(PropertyValueModel value in propertyList.Values)
+                    {
+                        output.Values.Add(pvd.InsertProperty(new PropertyValueModel(output.PropertyID, value.Value)));
+                    }
                     scope.Complete();
                 }
                 catch(TransactionAbortedException e)
@@ -51,12 +57,12 @@ namespace WebShop.Business
                     Console.WriteLine(e.Message);
                 }
             }
-
             return output;
         }
         public PropertyListModel EditPropertyList(PropertyListModel propertyList)
         {
             IPropertyListData pld = new PropertyListData();
+            IPropertyValueData pvd = new PropertyValueData();
             PropertyListModel output = null;
 
             using (TransactionScope scope = new TransactionScope())
@@ -64,6 +70,11 @@ namespace WebShop.Business
                 try
                 {
                     output = pld.Update(propertyList);
+                    output.Values = new List<PropertyValueModel>();
+                    foreach (PropertyValueModel property in propertyList.Values)
+                    {
+                        output.Values.Add(pvd.UpdateProperty(property));
+                    }
                     scope.Complete();
                 }
                 catch(TransactionAbortedException e)
@@ -77,7 +88,15 @@ namespace WebShop.Business
         public List<PropertyListModel> GetAllPropertyListByPropertyGroup(PropertyGroupsModel propertyGroup)
         {
             IPropertyListData pld = new PropertyListData();
-            return pld.SelectPropertyListByPropertyGroup(propertyGroup);
+            IPropertyValueData pvd = new PropertyValueData();
+
+            List<PropertyListModel> outputList = pld.SelectPropertyListByPropertyGroup(propertyGroup);
+
+            foreach(var property in outputList)
+            {
+                property.Values = pvd.SelectPropertyValuesByPropertyId(property);
+            }
+            return outputList;
         }
     }
 }
