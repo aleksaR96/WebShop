@@ -23,6 +23,11 @@ namespace WebShop.Model
             Value = value;
         }
 
+        public PropertyListModel(int propertyID)
+        {
+            PropertyID = propertyID;
+        }
+
         public PropertyListModel()
         {
         }
