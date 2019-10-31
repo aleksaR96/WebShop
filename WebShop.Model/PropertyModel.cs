@@ -32,6 +32,11 @@ namespace WebShop.Model
             Value = value;
         }
 
+        public PropertyModel(int propertyID)
+        {
+            PropertyID = propertyID;
+        }
+
         public PropertyModel()
         {
         }

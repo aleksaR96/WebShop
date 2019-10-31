@@ -13,12 +13,26 @@ namespace WebShop.Business
         public List<PropertyListModel> GetAllPropertyList()
         {
             IPropertyListData ipld = new PropertyListData();
-            return ipld.SelectAll();
+            IPropertyValueData ipvd = new PropertyValueData();
+
+            List<PropertyListModel> propertyList = ipld.SelectAll();
+
+            foreach (PropertyListModel property in propertyList)
+            {
+                property.Values = ipvd.SelectPropertyValuesByPropertyId(new PropertyListModel(property.PropertyID));
+            }
+
+            return propertyList;            
         }
         public PropertyListModel GetPropertyList(PropertyListModel propertyList)
         {
             IPropertyListData pld = new PropertyListData();
-            return pld.Select(propertyList);
+            IPropertyValueData ipvd = new PropertyValueData();
+
+            PropertyListModel property = pld.SelectPropertyByPropertyID(new PropertyModel(propertyList.PropertyID));
+            property.Values = ipvd.SelectPropertyValuesByPropertyId(propertyList);
+
+            return property;
         }
         public PropertyListModel AddPropertyList(PropertyListModel propertyList)
         {
