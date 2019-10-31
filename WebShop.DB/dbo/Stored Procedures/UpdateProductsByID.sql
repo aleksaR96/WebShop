@@ -9,7 +9,8 @@
 @Pinned bit,
 @Discount int,
 @New bit,
-@Popular bit
+@Popular bit,
+@EAN int
 AS
 BEGIN
 	
@@ -24,7 +25,8 @@ BEGIN
 		Pinned = @Pinned,
 		Discount = @Discount,
 		New = @New,
-		Popular = @Popular
+		Popular = @Popular,
+		EAN = @EAN
 	WHERE 
 		ProductID = @ID
 END;

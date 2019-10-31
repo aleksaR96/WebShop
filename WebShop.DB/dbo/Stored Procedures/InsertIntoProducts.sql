@@ -8,9 +8,10 @@
 @Pinned bit,
 @Discount int,
 @New bit,
-@Popular bit
+@Popular bit,
+@EAN int
 AS
 BEGIN
-	INSERT INTO Products(Name, Description, CategoryID, Price, Quantity, BrandID, Pinned, Discount, New, Popular)
-	VALUES(@Name, @Description, @CategoryID, @Price, @Quantity, @BrandID, @Pinned, @Discount, @New, @Popular)
+	INSERT INTO Products(Name, Description, CategoryID, Price, Quantity, BrandID, Pinned, Discount, New, Popular, EAN)
+	VALUES(@Name, @Description, @CategoryID, @Price, @Quantity, @BrandID, @Pinned, @Discount, @New, @Popular, @EAN)
 END;

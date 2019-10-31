@@ -33,6 +33,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -66,6 +67,7 @@ namespace WebShop.Data
                     product.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     product.New = Convert.ToByte(sqlDataReader["New"]);
                     product.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    product.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     product.State = ModelState.Selected;
                 }
@@ -97,6 +99,7 @@ namespace WebShop.Data
                     product.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     product.New = Convert.ToByte(sqlDataReader["New"]);
                     product.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    product.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     product.State = ModelState.Selected;
                 }
@@ -121,6 +124,7 @@ namespace WebShop.Data
                 sqlCommand.Parameters.Add(new SqlParameter("@Discount", newProduct.Discount));
                 sqlCommand.Parameters.Add(new SqlParameter("@New", newProduct.New));
                 sqlCommand.Parameters.Add(new SqlParameter("@Popular", newProduct.Popular));
+                sqlCommand.Parameters.Add(new SqlParameter("@EAN", newProduct.EAN));
 
                 int num = sqlCommand.ExecuteNonQuery();
                 newProduct.State = ModelState.Inserted;
@@ -146,6 +150,7 @@ namespace WebShop.Data
                 sqlCommand.Parameters.Add(new SqlParameter("@Discount", product.Discount));
                 sqlCommand.Parameters.Add(new SqlParameter("@New", product.New));
                 sqlCommand.Parameters.Add(new SqlParameter("@Popular", product.Popular));
+                sqlCommand.Parameters.Add(new SqlParameter("@EAN", product.EAN));
 
                 int num = sqlCommand.ExecuteNonQuery();
                 product.State = ModelState.Updated;
@@ -196,6 +201,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
                     output.State = ModelState.Selected;
 
                     outputList.Add(output);
@@ -230,6 +236,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -265,6 +272,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -300,6 +308,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -336,6 +345,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -371,6 +381,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -407,6 +418,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -443,6 +455,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                     outputList.Add(output);
@@ -477,6 +490,7 @@ namespace WebShop.Data
                     output.Discount = Convert.ToInt32(sqlDataReader["Discount"]);
                     output.New = Convert.ToByte(sqlDataReader["New"]);
                     output.Popular = Convert.ToByte(sqlDataReader["Popular"]);
+                    output.EAN = Convert.ToInt32(sqlDataReader["EAN"]);
 
                     output.State = ModelState.Selected;
                 }

@@ -17,6 +17,7 @@ namespace WebShop.Model
         public int Discount { get; set; }
         public byte New { get; set; }
         public byte Popular { get; set; }
+        public int EAN { get; set; }
         public List<PropertyModel> Properties { get; set; }
         public List<ImageModel> Images { get; set; }
         public List<PropertyModel> FeaturedProperties { set; get; }
@@ -60,7 +61,7 @@ namespace WebShop.Model
 
         public override string ToString()
         {
-            string retString = ProductID + " " + Name + " " + Description + " " + CategoryID + " " + Price + " " + Quantity + " " + BrandID + " " + Pinned + " " + Discount + " " + New + " " + Popular + " " + base.ToString();
+            string retString = ProductID + " " + EAN + " " + Name + " " + Description + " " + CategoryID + " " + Price + " " + Quantity + " " + BrandID + " " + Pinned + " " + Discount + " " + New + " " + Popular + " " + base.ToString();
             for(int i = 0; i < FeaturedProperties.Count; i++)
             {
                 retString += " " + FeaturedPropertiesName[i].Value;

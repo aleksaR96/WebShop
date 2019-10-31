@@ -10,7 +10,10 @@
     [Discount]    INT             NULL,
     [New]         BIT             NULL,
     [Popular]     BIT             NULL,
+    [EAN]         INT             NULL,
     PRIMARY KEY CLUSTERED ([ProductID] ASC),
     FOREIGN KEY ([CategoryID]) REFERENCES [dbo].[Category] ([CategoryID])
 );
+
+
 
