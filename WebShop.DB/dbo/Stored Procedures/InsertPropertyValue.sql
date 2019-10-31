@@ -8,5 +8,12 @@ BEGIN
 	(
 		@PropertyID,
 		@Value
-	)
+	);
+
+	SELECT *
+	FROM PropertyValues
+	WHERE
+		PropertyID = @PropertyID
+		AND
+		Value = @Value;
 END;

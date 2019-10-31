@@ -9,5 +9,9 @@ BEGIN
 		PropertyID = @PropertyID,
 		Value = @Value
 	WHERE
-		ID = @ID
+		ID = @ID;
+
+	SELECT *
+	FROM PropertyValues
+	WHERE ID = @ID;
 END;
