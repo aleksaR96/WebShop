@@ -67,7 +67,7 @@ body {
     text-decoration: underline;
 }
 
-#name:focus, #description:focus, #name:active, #description:active {
+#name:focus, #description:focus, #ean:focus, #name:active, #description:active, #ean:active {
     outline: 0px !important;
     -webkit-appearance: none;
     box-shadow: none !important;

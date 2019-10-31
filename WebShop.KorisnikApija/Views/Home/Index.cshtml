@@ -6,21 +6,25 @@
     <li class="nav-item">
         <a class="nav-link active" data-toggle="tab" href="#add">Dodavanje proizvoda <span class="small"><i class='fas fa-plus-circle'></i></span></a>
     </li>
-    <li class="nav-item border-0">
+    <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#edit">Izmena proizvoda <span class="small"><i class='fas fa-edit'></i></span></a>
     </li>
-    <li class="nav-item border-0">
+    <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#menu2">Statistika <span class="small"><i class='fas fa-chart-bar'></i></span></a>
     </li>
-    <li class="nav-item border-0 ml-auto">
-        <a class="nav-link"  href="#">Odjava <span class="small"><i class='fas fa-sign-out-alt'></i> Aleksa Ristić</span></a>
+    <li class="nav-item ml-auto">
+        <a class="nav-link border-0"  href="#">Odjava <span class="small"><i class='fas fa-sign-out-alt'></i></span></a>
     </li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
     <div class="tab-pane container fade active show p-0" id="add">
-        <div class="container p-3 border rounded-bottom rounded-right">
+        <div class="container px-3 pb-3 pt-1 border rounded-bottom rounded-right">
+
+            <div class="container-fluid px-0 pb-2">
+                <p class="small text-right text-muted">Aleksa Ristic</p>
+            </div>
 
             <form class="" action="" method="post" name="form">
 
@@ -31,6 +35,12 @@
                         </div>
                         <div class="form-group">
                             <textarea class="form-control border-0 rounded-0" name="description" id="description" rows="8" style="max-width: 100%; overflow:auto; resize:none;" required placeholder="Unesi opis proizvoda..."></textarea>
+                        </div>
+                        <div class="input-group mb-3 text-monospace">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white border-top-0 border-right-0 border-left-0 rounded-0 font-weight-bolder">EAN:</span>
+                            </div>
+                            <input type="text" class="form-control border-top-0 border-right-0 border-left-0 rounded-0" id="ean" name="ean" value="" placeholder="0 000000 000000" required>
                         </div>
                     </div>
 
