@@ -63,7 +63,7 @@ namespace WebShop.Model
             string retString = ProductID + " " + Name + " " + Description + " " + CategoryID + " " + Price + " " + Quantity + " " + BrandID + " " + Pinned + " " + Discount + " " + New + " " + Popular + " " + base.ToString();
             for(int i = 0; i < FeaturedProperties.Count; i++)
             {
-                retString += " " + FeaturedPropertiesName[i].Value;
+                retString += " " + FeaturedPropertiesName[i].Name;
                 retString += " " + FeaturedProperties[i].Value;
                 retString += " " + i;
             }

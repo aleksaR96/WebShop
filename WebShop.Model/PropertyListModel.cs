@@ -8,19 +8,19 @@ namespace WebShop.Model
     {
         public int PropertyID { get; set; }
         public int GroupID { get; set; }
-        public string Value { get; set; }
+        public string Name { get; set; }
 
         public PropertyListModel(int propertyID, int groupID, string value)
         {
             PropertyID = propertyID;
             GroupID = groupID;
-            Value = value;
+            Name = value;
         }
 
         public PropertyListModel(int groupID, string value)
         {
             GroupID = groupID;
-            Value = value;
+            Name = value;
         }
 
         public PropertyListModel(int propertyID)
@@ -34,7 +34,7 @@ namespace WebShop.Model
 
         public override string ToString()
         {
-            return PropertyID + " " + GroupID + " " + Value;
+            return PropertyID + " " + GroupID + " " + Name;
         }
     }
 }
