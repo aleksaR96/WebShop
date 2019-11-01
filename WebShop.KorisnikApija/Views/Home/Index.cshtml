@@ -199,10 +199,34 @@
 
                         $.each(val["propertyList"], function (i, val) {
                             if (val["values"].length > 1) {
-                                $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val['value'] + ":</label><select class='form-control form-control-sm' name='" + val["value"] + "' id='" + val["propertyID"] + "' required><option value=''>Odaberi " + val["value"] + "</option></select></div></div>");
-                                $.each(val["values"], function (i, propertyValue) {
-                                    $("#" + val['propertyID']).append("<option value='" + propertyValue["id"] + "'>" + propertyValue["value"] + "</option>");
-                                });
+                                if (val["values"].length == 2) {
+                                    var ne = false;
+                                    var da = false;
+                                    $.each(val["values"], function (i, propertyValue) {
+                                        if (propertyValue["value"] == 'Da') {
+                                            da = true;
+                                            console.log("da");
+                                        }
+                                        if (propertyValue["value"] == 'Ne') {
+                                            ne = true;
+                                            console.log("ne");
+                                        }
+                                    });
+                                    if (da == true && ne == true) {
+                                        console.log("***");
+                                        $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label class='form-check-label'><input type='checkbox' class='form-check-input' id='" + val["propertyID"] + "' name='' value='Da'>" + val['value'] + ":<span class='checkmark'></span></label></div></div>");
+                                    } else {
+                                        $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val['value'] + ":</label><select class='form-control form-control-sm' name='" + val["value"] + "' id='" + val["propertyID"] + "' required><option value=''>Odaberi " + val["value"] + "</option></select></div></div>");
+                                        $.each(val["values"], function (i, propertyValue) {
+                                            $("#" + val['propertyID']).append("<option value='" + propertyValue["id"] + "'>" + propertyValue["value"] + "</option>");
+                                        });
+                                    }
+                                } else {
+                                    $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val['value'] + ":</label><select class='form-control form-control-sm' name='" + val["value"] + "' id='" + val["propertyID"] + "' required><option value=''>Odaberi " + val["value"] + "</option></select></div></div>");
+                                    $.each(val["values"], function (i, propertyValue) {
+                                        $("#" + val['propertyID']).append("<option value='" + propertyValue["id"] + "'>" + propertyValue["value"] + "</option>");
+                                    });
+                                }
                             } else {
                                 $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val["value"] + ":</label><input type='text' class='form-control form-control-sm'></input></div></div>");
                             }
