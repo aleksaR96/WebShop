@@ -205,16 +205,13 @@
                                     $.each(val["values"], function (i, propertyValue) {
                                         if (propertyValue["value"] == 'Da') {
                                             da = true;
-                                            console.log("da");
                                         }
                                         if (propertyValue["value"] == 'Ne') {
                                             ne = true;
-                                            console.log("ne");
                                         }
                                     });
                                     if (da == true && ne == true) {
-                                        console.log("***");
-                                        $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label class='form-check-label'><input type='checkbox' class='form-check-input' id='" + val["propertyID"] + "' name='' value='Da'>" + val['value'] + ":<span class='checkmark'></span></label></div></div>");
+                                        $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label class='form-check-label form-check-label-da-ne font-weight-normal'><input type='checkbox' class='form-check-input' id='" + val["propertyID"] + "' name='' value='Da'>" + val['value'] + ":<span class='checkmark checkmark-da-ne'></span></label></div></div>");
                                     } else {
                                         $("#" + param).append("<div class='col-md-4 col-lg-2'><div class='form-group'><label>" + val['value'] + ":</label><select class='form-control form-control-sm' name='" + val["value"] + "' id='" + val["propertyID"] + "' required><option value=''>Odaberi " + val["value"] + "</option></select></div></div>");
                                         $.each(val["values"], function (i, propertyValue) {

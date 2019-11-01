@@ -102,15 +102,18 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
-
+.form-check-label-da-ne {
+    padding-left: 0em;
+    padding-bottom: 2em;
+}
 /* Hide the browser's default radio button */
-    .form-check-label input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
+.form-check-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
 
 /* Create a custom radio button */
 .checkmark {
@@ -121,6 +124,10 @@ body {
     width: 15px;
     background-color: #eee;
     border-radius: 50%;
+}
+.checkmark-da-ne {
+    bottom: 0;
+    top: auto;
 }
 
 /* On mouse-over, add a grey background color */
