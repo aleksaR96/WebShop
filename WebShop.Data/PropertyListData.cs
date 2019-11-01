@@ -30,6 +30,7 @@ namespace WebShop.Data
                 SqlCommand sqlCommand = base.createSqlCommandSP("InsertPropertyList");
                 sqlCommand.Parameters.Add(new SqlParameter("@Name", propertyList.Value));
                 sqlCommand.Parameters.Add(new SqlParameter("@GroupID", propertyList.GroupID));
+                sqlCommand.Parameters.Add(new SqlParameter("@RelatedPropertyID", propertyList.RelatedPropertyID));
 
                 SqlDataReader sqlDataReader = base.getSqlDataReader();
                 PropertyListModel output = null;
@@ -41,6 +42,7 @@ namespace WebShop.Data
                     output.Value = sqlDataReader["Name"].ToString();
                     output.PropertyID = Convert.ToInt32(sqlDataReader["ID"]);
                     output.GroupID = Convert.ToInt32(sqlDataReader["GroupID"]);
+                    output.RelatedPropertyID = Convert.ToInt32(sqlDataReader["RelatedPropertyID"]);
 
                     output.State = ModelState.Inserted;
                 }
@@ -68,6 +70,7 @@ namespace WebShop.Data
                     output.Value = sqlDataReader["Name"].ToString();
                     output.GroupID = Convert.ToInt32(sqlDataReader["GroupID"]);
                     output.PropertyID = Convert.ToInt32(sqlDataReader["ID"]);
+                    output.RelatedPropertyID = Convert.ToInt32(sqlDataReader["RelatedPropertyID"]);
 
                     output.State = ModelState.Selected;
                 }
@@ -94,6 +97,7 @@ namespace WebShop.Data
                     output.Value = sqlDataReader["Name"].ToString();
                     output.PropertyID = Convert.ToInt32(sqlDataReader["ID"]);
                     output.GroupID = Convert.ToInt32(sqlDataReader["GroupID"]);
+                    output.RelatedPropertyID = Convert.ToInt32(sqlDataReader["RelatedPropertyID"]);
                     output.State = ModelState.Selected;
 
                     outputList.Add(output);
@@ -120,6 +124,7 @@ namespace WebShop.Data
                     output.PropertyID = Convert.ToInt32(sqlDataReader["ID"]);
                     output.GroupID = Convert.ToInt32(sqlDataReader["GroupID"]);
                     output.Value = sqlDataReader["Name"].ToString();
+                    output.RelatedPropertyID = Convert.ToInt32(sqlDataReader["RelatedPropertyID"]);
                     output.State = ModelState.Selected;
                 }
 
@@ -136,6 +141,7 @@ namespace WebShop.Data
                 sqlCommand.Parameters.Add(new SqlParameter("@ID", propertyList.PropertyID));
                 sqlCommand.Parameters.Add(new SqlParameter("@Name", propertyList.Value));
                 sqlCommand.Parameters.Add(new SqlParameter("@GroupID", propertyList.GroupID));
+                sqlCommand.Parameters.Add(new SqlParameter("@RelatedPropertyID", propertyList.RelatedPropertyID));
 
                 SqlDataReader sqlDataReader = base.getSqlDataReader();
 
@@ -147,6 +153,7 @@ namespace WebShop.Data
                     output.PropertyID = Convert.ToInt32(sqlDataReader["ID"]);
                     output.GroupID = Convert.ToInt32(sqlDataReader["GroupID"]);
                     output.Value = sqlDataReader["Name"].ToString();
+                    output.RelatedPropertyID = Convert.ToInt32(sqlDataReader["RelatedPropertyID"]);
 
                     output.State = ModelState.Updated;
                 }
@@ -174,6 +181,7 @@ namespace WebShop.Data
                     output.GroupID = Convert.ToInt32(sqlDataReader["GroupID"]);
                     output.PropertyID = Convert.ToInt32(sqlDataReader["ID"]);
                     output.Value = sqlDataReader["Name"].ToString();
+                    output.RelatedPropertyID = Convert.ToInt32(sqlDataReader["RelatedPropertyID"]);
                     output.State = ModelState.Selected;
 
                     outputList.Add(output);

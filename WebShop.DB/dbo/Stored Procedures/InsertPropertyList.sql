@@ -1,14 +1,16 @@
 ﻿CREATE PROC InsertPropertyList
 @Name nvarchar(30),
-@GroupID int
+@GroupID int,
+@RelatedPropertyID int
 AS
 BEGIN
 	INSERT INTO PropertyList
-	(Name, GroupID)
+	(Name, GroupID, RelatedPropertyID)
 	VALUES
 		(
 			@Name,
-			@GroupID
+			@GroupID,
+			@RelatedPropertyID
 		);
 	SELECT *
 	FROM PropertyList

@@ -1,13 +1,15 @@
 ﻿CREATE PROC UpdatePropertyList
 @ID int,
 @Name nvarchar(30),
-@GroupID int
+@GroupID int,
+@RelatedPropertyID int
 AS
 BEGIN
 	UPDATE PropertyList
 	SET
 		Name = @Name,
-		GroupID = @GroupID
+		GroupID = @GroupID,
+		RelatedPropertyID = @RelatedPropertyID
 	WHERE ID = @ID;
 
 	SELECT *
